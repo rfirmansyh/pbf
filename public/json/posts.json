@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "img": "posts\/z2ewJjUeErp7Txw8qm2mAVi1liRCTkiCMMkRZT6j.png",
+        "title": "Tes Category",
+        "body": "<p><strong>asdfasdfasdfasdfasdf<\/strong><\/p>",
+        "author": "firman",
+        "created": "2020-11-06T12:47:45.136540Z",
+        "updated": null
+    },
+    {
+        "id": 2,
+        "img": "posts\/z2ewJjUeErp7Txw8qm2mAVi1liRCTkiCMMkRZT6j.png",
+        "title": "Tes Category",
+        "body": "<p><strong>asdfasdfasdfasdfasdf<\/strong><\/p>",
+        "author": "firman",
+        "created": "2020-11-06T12:47:45.136540Z",
+        "updated": null
+    },
+    {
+        "id": 3,
+        "img": "posts\/z2ewJjUeErp7Txw8qm2mAVi1liRCTkiCMMkRZT6j.png",
+        "title": "Tes Category",
+        "body": "<p><strong>asdfasdfasdfasdfasdf<\/strong><\/p>",
+        "author": "firman",
+        "created": "2020-11-06T12:47:45.136540Z",
+        "updated": null
+    },
+    {
+        "id": 4,
+        "img": "posts\/z2ewJjUeErp7Txw8qm2mAVi1liRCTkiCMMkRZT6j.png",
+        "title": "Tes Category",
+        "body": "<p><strong>asdfasdfasdfasdfasdf<\/strong><\/p>",
+        "author": "firman",
+        "created": "2020-11-06T12:47:45.136540Z",
+        "updated": null
+    },
+    {
+        "id": 5,
+        "img": "posts\/z2ewJjUeErp7Txw8qm2mAVi1liRCTkiCMMkRZT6j.png",
+        "title": "Tes Category",
+        "body": "<p><strong>asdfasdfasdfasdfasdf<\/strong><\/p>",
+        "author": "firman",
+        "created": "2020-11-06T12:47:45.136540Z",
+        "updated": null
+    }
+]
