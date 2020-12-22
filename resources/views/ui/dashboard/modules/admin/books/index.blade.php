@@ -24,59 +24,15 @@
     {{-- filter --}}
     <div class="card card-primary">
         <div class="card-body">
-            <div class="card-title d-flex justify-content-between">
-                <h2 class="tx-24 font-weight-bolder">Filter</h2>
-                <button data-toggle="collapse" data-target="#collapseExample" class="btn btn-sm btn-outline-primary py-0 px-3"><i class="fas fa-filter"></i></button>
-            </div>
-            <hr>
-            <div class="collapse" id="collapseExample">
-                <div class="row align-items-end gutters-xs border-bottom pb-4 mb-5"> 
-                    <div class="col-md">
-                        <div class="form-group mb-3 mb-md-0">
-                            <label for="">Pilih Status</label>
-                            <select class="custom-select">
-                                <option selected>Semua</option>
-                                <option value="1">Aktif</option>
-                                <option value="2">Nonaktif</option>
-                            </select>
-                        </div>
+            <div class="row align-items-end gutters-xs border-bottom pb-4 mb-5"> 
+                <div class="col-md">
+                    <div class="form-group mb-md-0">
+                        <label for="">Cari Buku</label>
+                        <input type="text" class="form-control" placeholder="Masukan Nama Untuk Dicari">
                     </div>
-                    <div class="col-md">
-                        <div class="form-group mb-3 mb-md-0">
-                            <label for="">Pilih Lokasi Kota</label>
-                            <select class="custom-select">
-                                <option selected>Semua</option>
-                                <option value="1">Jember</option>
-                                <option value="2">Lumajang</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group mb-3 mb-md-0">
-                            <label for="">Luas</label>
-                            <select class="custom-select">
-                                <option selected>Semua</option>
-                                <option value="1">> 10 M2</option>
-                                <option value="2">Lumajang</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group mb-3 mb-md-0">
-                            <label for="">Tanggal Buat</label>
-                            <input type="date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-12 d-none d-md-block mb-3"></div>
-                    <div class="col-md">
-                        <div class="form-group mb-md-0">
-                            <label for="">Nama Tempat</label>
-                            <input type="text" class="form-control" placeholder="Masukan Nama Untuk Dicari">
-                        </div>
-                    </div>
-                    <div class="col-md-auto">
-                        <button class="btn btn-block btn-lg btn-outline-primary">Proses Filter</button>
-                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <button class="btn btn-block btn-lg btn-outline-primary">Proses Filter</button>
                 </div>
             </div>
 
