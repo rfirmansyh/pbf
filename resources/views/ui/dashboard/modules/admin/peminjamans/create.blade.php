@@ -54,8 +54,14 @@
                     </div>
                     <div class="form-group">
                         <label for="">Pilih Member</label>
-                        <select name="" id="" class="selectpicker">
-                            
+                        <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
+                            <option value="">Mamat</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Buku Yang Dipinjam</label>
+                        <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
+                            <option value="">Buku Laravel</option>
                         </select>
                     </div>
                     <div class="form-group">
