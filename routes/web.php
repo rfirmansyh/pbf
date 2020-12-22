@@ -40,7 +40,7 @@ Route::group(['prefix' => 'ui'], function () {
     Route::view('dashboard/admin/books', 'ui/dashboard/modules/admin/books/index');
 
     /* MEMBER */
-    Route::view('dashboard/member/books', 'ui/dashboard/modules/admin/books/index');
+    Route::view('dashboard/member/books', 'ui/dashboard/modules/member/books/index');
 });
 
 
