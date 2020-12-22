@@ -2,17 +2,14 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Tempat Budidaya Saya')
+@section('header', 'Daftar Buku')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Tempat Budidaya</a></div>
+    <div class="breadcrumb-item active"><a href="#">Buku Perpustakaan</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Daftar Tempat Budidaya Saya</h2></div>
-		<div class="col-md-auto">
-        	<a href="{{ url('ui/dashboard/mitra/budidaya/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Tempat Budidaya</a>
-        </div>
+		<div class="col-md"><h2 class="section-title">Daftar Buku Perpus ID</h2></div>
   </div>
 @endsection
 
@@ -40,32 +37,31 @@
                 @for ($i = 0; $i < 2; $i++)
                 <div class="col-lg-6">
                     <div class="card card-success border-bottom">
-                        <div class="card-header tx-18 font-weight-bold"> Budidaya Sumber Maju Jember </div>
+                        <div class="card-header tx-18 font-weight-bold"> Belajar Laravel  </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-auto">
                                     <div id="img-card">
-                                        <img src="{{ asset('img/budidaya/'.($i+1).'.jpg') }}" alt="">
+                                        <img src="{{ asset('img/laravel.jpg') }}" alt="">
 									</div>
                                 </div>
                                 <div class="col-lg">
-                                    <div class="d-flex align-items-center border-bottom mb-1 pb-2">Status:
-										<div class="badge badge-success  ml-2">Aktif</div>
+                                    <div class="border-bottom mb-1 pb-1"> Kode Buku: 
+                                    <div class="font-weight-bold"> 01234 </div>
                                     </div>
-                                    <div class="border-bottom mb-1 pb-1">Detail Lokasi :
-                                        <div class="font-weight-bold">Desa Kemiri Kecamatan Panti, Jember, Jawa Timur</div>
+                                    <div class="border-bottom mb-1 pb-1">Penulis :
+                                        <div class="font-weight-bold"> SomePeople </div>
                                     </div>
-                                    <div class="border-bottom mb-1 pb-1">Luas Tempat :
-                                        <div class="font-weight-bold">10 M2</div>
+                                    <div class="border-bottom mb-1 pb-1"> Stok Buku :
+                                        <div class="font-weight-bold">10</div>
                                     </div>
-                                    <div class="">Tanggal Dibuat :
-                                        <div class="font-weight-bold">8 Januari 2020</div>
+                                    <div class="">Deskripsi Buku :
+                                        <div class= "font-weight-bold"> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</div>
                                     </div>
                                 </div>
                             </div>
 						</div>
 						<div class="card-footer border-top border-light d-flex justify-content-end">
-							<a href="{{ url('ui/dashboard/mitra/budidaya/edit') }}" class="btn btn-sm btn-warning mr-1">Ubah</a>
 							<a href="{{ url('ui/dashboard/mitra/budidaya/show') }}" class="btn btn-sm btn-primary">Detail</a>
 						</div>
                     </div>
