@@ -37,10 +37,21 @@ Route::group(['prefix' => 'ui'], function () {
 
 
     /* ADMIN */
+    // Books
     Route::view('dashboard/admin/books', 'ui/dashboard/modules/admin/books/index');
+    Route::view('dashboard/admin/books/create', 'ui/dashboard/modules/admin/books/create');
+    Route::view('dashboard/admin/books/edit', 'ui/dashboard/modules/admin/books/edit');
+    // Peminjamans
+    Route::view('dashboard/admin/peminjamans', 'ui/dashboard/modules/admin/peminjamans/index');
+    Route::view('dashboard/admin/peminjamans/create', 'ui/dashboard/modules/admin/peminjamans/create');
+
+
 
     /* MEMBER */
+    // Books
     Route::view('dashboard/member/books', 'ui/dashboard/modules/member/books/index');
+    // Peminjamans
+    Route::view('dashboard/member/peminjamans', 'ui/dashboard/modules/member/peminjamans/index');
 });
 
 
