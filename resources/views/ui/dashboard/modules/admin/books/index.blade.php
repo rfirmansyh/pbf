@@ -2,16 +2,16 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Tempat Budidaya Saya')
+@section('header', 'Daftar Buku')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Tempat Budidaya</a></div>
+    <div class="breadcrumb-item active"><a href="#">Daftar Buku</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Daftar Tempat Budidaya Saya</h2></div>
+		<div class="col-md"><h2 class="section-title">Daftar Buku</h2></div>
 		<div class="col-md-auto">
-        	<a href="{{ url('ui/dashboard/mitra/budidaya/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Tempat Budidaya</a>
+        	<a href="{{ url('ui/dashboard/mitra/budidaya/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Buku Baru</a>
         </div>
   </div>
 @endsection

@@ -16,13 +16,16 @@
     {{-- stisla vendor --}}
     <link rel="stylesheet" href="{{ asset('vendors/stisla/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/stisla/css/components.css')}}">
+    {{-- bs-select vendor --}}
+    <link rel="stylesheet" href="{{ asset('vendors/bs-select/bootstrap-select.min.css')}}">
     @yield('style')
 
-    <title>ABJA | @yield('title')</title>
+    <title>SAU | @yield('title')</title>
 </head>
-<body>
+<body style="overflow-x: hidden; overflow-y: auto;">
     @yield('content-extends')
-    
+
+    @yield('modal')
 
     {{-- JS DEPEDENCY --}}
     {{-- bootstrap --}}
@@ -36,6 +39,8 @@
     <script src="{{ asset('vendors/stisla/js/stisla.js') }}"></script>
     <script src="{{ asset('vendors/stisla/js/scripts.js') }}"></script>
     <script src="{{ asset('vendors/stisla/js/custom.js') }}"></script>
+    {{-- bs-select --}}
+    <script src="{{ asset('vendors/bs-select/bootstrap-select.min.js')}}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('script')
 </body>
