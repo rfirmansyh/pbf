@@ -1,0 +1,49 @@
+// RESET
+:root {
+    font-size: 10px;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+}
+
+h1 {
+    font-size: 6.4rem;
+}
+h2 {
+    font-size: 4.6rem;
+    @media screen and (max-width: breakpoint('lg')) {
+        font-size: 3.6rem !important;
+    }
+    @media screen and (max-width: breakpoint('md')) {
+        font-size: 3.6rem !important;
+    }
+    @media screen and (max-width: breakpoint('sm')) {
+        font-size: 2.4rem !important;
+    }
+}
+
+h3 {
+    font-size: 4.2rem;
+    @media screen and (max-width: breakpoint('md')) {
+        font-size: 2.4rem !important;
+    }
+}
+
+h4 {font-size: 3.2rem;}
+h5 {font-size: 2.4rem;}
+h6 {
+    font-size: 1.8rem;
+    @media screen and (max-width: breakpoint('sm')) {
+        font-size: 1.6rem !important;
+    }
+}
+
+p {
+    font-size: 1.6rem;
+    @media screen and (max-width: breakpoint('sm')) {
+        font-size: 1.4rem !important;
+    }
+}
+.text-md {font-size: 1.6rem;}
+.text-sm {font-size: 1.2rem;}

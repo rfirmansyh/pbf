@@ -1,0 +1,29 @@
+menu member
+- dashboard (profil perpus, widget buku dipinjam, buku dikembalikan, buku telat dikembalikan)
+- daftar buku ( search )
+- peminjaman ( datatable )
+- pengembalian ( datatable )
+- profil
+
+menu admin
+- dashboard ( anggota paling banyak meminjam, jumlah buku, jumlah anggota, buku dipinjam )
+- daftar buku ( crud )
+- daftar rak ( crud )
+- data anggota ( delete )
+- peminjaman ( datatable hanya konfirmasi )
+- pengembalian ( datatable hanya konfirmasi )
+- profil
+
+user 
+- email
+- password
+- nama
+- jenis_kelamin
+- no_telp
+- alamat
+- role
+- created_at
+- updated_at
+
+
+

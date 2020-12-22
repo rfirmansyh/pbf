@@ -1,0 +1,197 @@
+// CONTAINER
+.container {
+    @media screen and (max-width: breakpoint('sm')) {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+// NAVBAR
+.navbar {
+    align-items: center;
+    padding: 0 1rem;
+    background: color('white') !important;
+    .container {
+        padding: 2.638rem 1rem;
+        border-bottom: 1px solid color('secondary');
+    }
+    .navbar-brand {
+        margin-bottom: .5rem;
+        font-size: 2.4rem;
+        color: color('primary');
+        font-weight: 600;
+    }
+    .navbar-nav {
+        align-items: center;
+        @media screen and (max-width: breakpoint('lg')) {
+            align-items: start;
+            padding-top: 4rem;
+        }
+        a {
+            margin-right: 3rem;
+            font-size: 1.6rem;
+            @media screen and (max-width: breakpoint('lg')) {
+                margin-bottom: 2rem;
+            }
+            &.nav-item {
+                position: relative !important;
+                display: flex !important; align-items: center; justify-content: center;
+                @media screen and (max-width: breakpoint('lg')) {
+                    align-items: flex-start;
+                    justify-content: start;
+                }
+                color: color('grey');
+                &:hover {
+                    &::after {
+                        width: 48px;
+                    }
+                }
+                &::after {
+                    content: '';
+                    z-index: 1;
+                    position: absolute; bottom: 0;
+                    display: block;
+                    width: 0px;
+                    height: 4px;
+                    border-radius: 4px;
+                    background-color: rgba(color('primary'), .5);
+                    transition: width ease .5s;
+                }
+                &.active {
+                    &::after {
+                        content: '';
+                        z-index: 1;
+                        position: absolute; bottom: 0;
+                        display: block;
+                        width: 48px;
+                        height: 4px;
+                        border-radius: 4px;
+                        background-color: color('primary');
+                    }
+                }
+            }
+        }
+    }
+    .navbar-toggler {
+        border: none;
+        font-size: 2rem;
+        &:focus {
+            outline: 1px solid color('gray');
+        }
+    }
+}
+
+// BUTTON
+.btn {
+    border-radius: .3rem;
+    padding: .75rem 1.5rem;
+    font-size: 1.4rem;
+    @media screen and (max-width: breakpoint('sm')) {
+        font-size: 1.4rem;
+    }
+    &-sm { padding: .6rem 1.2rem; }
+    &-lg { padding: 1.1rem 2.6rem; font-size: 1.6rem; }
+    @each $color, $value in $colors {
+        &.btn-#{$color} {
+            border: none;
+            background-color: $value;
+            @if ($color == "light" or $color == "light-blue" or $color == "white") {
+                color: color("dark") !important;
+            } @else {
+                color: color("white") !important;
+            }
+            &:hover,
+            &:focus {
+                border-color: transparent;
+                box-shadow: 0px 15px 20px transparentize($value, 0.8);
+            }
+        }
+        &.btn-outline-#{$color} {
+            background-color: transparent;
+            color: $value;
+            border-color: $value !important;
+    
+            &:hover,
+            &:focus {
+                background-color: $value;
+                // Jika background terang
+                @if ($color == "light" or $color == "light-blue" or $color == "white") {
+                    color: color("midnight") !important;
+                } @else {
+                    color: color("white") !important;
+                }
+            }
+        }
+    }
+}
+
+// CARD
+.card {
+    padding: 0;
+    border: none;
+    &.card-post-small {
+        .card-post-img {
+            border-radius: .5rem;
+            width: 6.5rem;
+            height: 6.5rem;
+            padding: .8rem;
+            background-color: color('white');
+            img {
+                border-radius: .5rem;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .card-body {
+            padding: 0;
+        }
+    }
+    &.card-testi {
+        border-radius: 1.5rem;
+        position: relative;
+        background: transparent;
+        .card-testi-img {
+            width: 8rem;
+            height: 8rem;
+            background-color: color('white');
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .card-body {
+        padding: 3rem;
+    }
+}
+
+.divider-small {
+    width: 4.8rem;
+    height: .4rem;
+    border-radius: .4rem;
+    background: color('primary');
+}
+
+
+
+
+@keyframes strong-pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(color('primary'), 0.6);
+        box-shadow: 0 0 0 0 rgba(color('primary'), 0.6);
+        transform: scale(1);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 2rem rgba(color('primary'), 0);
+        box-shadow: 0 0 0 2rem rgba(color('primary'), 0);
+        transform: scale(1.1);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(color('primary'), 0);
+        box-shadow: 0 0 0 0 rgba(color('primary'), 0);
+    }
+}

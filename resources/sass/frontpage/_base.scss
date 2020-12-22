@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+// VARIABLE
+$colors : (
+    'primary'           : #6777EF,
+    'secondary'         : #CDD3D8,
+    'success'           : #47C363,
+    'info'              : #3ABAF4,
+    'warning'           : #FFA426,
+    'danger'            : #FC544B,
+    'light'             : #E3EAEF,
+    'grey'              : #868E96,
+    'whitesmoke'        : #F7F9F9,
+    'dark'              : #191D21,
+    'muted'             : #98A6AD,
+    'body'              : #f4f6f9,
+    'font'              : #6c757d,
+    'fontdark'          : #34395e,
+    'white'             : #ffffff,
+
+);  
+
+$gradient-colors : (
+    'primary'       : linear-gradient(180deg, #008BE6 0%, #6C63FF 100%)
+);
+
+$breakpoints: (
+    'xl'        : 1199.98px,
+    'lg'        : 991.98px,
+    'md'        : 767.98px,
+    'sm'        : 575.98px
+);

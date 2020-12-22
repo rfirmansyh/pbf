@@ -1,0 +1,13 @@
+/* Icon Util size */
+@for $i from 8 to 32 {
+    @if($i % 2 == 0) {
+        .tx-#{$i} {
+            font-size: $i * 1px;
+        }
+    }
+}
+
+/* Cursor Util */
+.csr-pointer {
+    cursor: pointer;
+}

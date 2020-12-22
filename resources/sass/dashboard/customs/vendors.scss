@@ -1,0 +1,9 @@
+.bootstrap-select {
+    .btn {
+        &.form-control {
+            &:active, &:hover {
+                border-color: #e4e6fc !important;
+            }  
+        }
+    }
+}

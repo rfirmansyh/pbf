@@ -1,0 +1,87 @@
+
+
+// BACKGROUND UTILS
+
+// INSET
+.mb-10 { margin-bottom: 10rem;}
+.mb-md-10 { 
+    @media screen and (min-width: breakpoint('md')) {
+        margin-bottom: 10rem !important;
+    }
+}
+.mb-md-8 { 
+    @media screen and (min-width: breakpoint('md')) {
+        margin-bottom: 8rem !important;
+    }
+}
+
+.mb-6 { margin-bottom: 6rem;}
+.py-10 { padding-top: 10rem; padding-bottom: 10rem;}
+.py-md-10 { 
+    @media screen and (min-width: breakpoint('md')) {
+        padding-top: 10rem !important; padding-bottom: 10rem !important;
+    }
+}
+.py-6 { padding-top: 6rem; padding-bottom: 6rem;}
+
+// TEXT UTILS
+/* color */
+.text {
+    @each $color, $value in $colors {
+        &-#{$color} {
+            color: $value !important;
+        }
+    }
+}
+/* weight */
+.font-weight-light {font-weight: 300;}
+.font-weight-normal {font-weight: 400;}
+.font-weight-semibold {font-weight: 600;}
+.font-weight-bold {font-weight: 700;}
+.font-weight-extrabold {font-weight: 800;}
+.font-weight-boldest {font-weight: 900;}
+/* line-height */
+.text-height-0 {line-height: 0;}
+
+// BORDER UTILS
+.rounded-sm {border-radius: 5px !important;}
+.rounded-md {border-radius: 10px !important;}
+.rounded-lg {border-radius: 15px !important;}
+
+// BORDER
+.border {
+    @for $i from 1 to 6 {
+        &.border-#{$i} { border-width: ($i * 1px) !important; }
+    }
+    @each $color, $value in $colors {
+        &.border-#{$color} {
+            border-color: $value !important;
+        }
+    }
+}
+
+// SHADOW
+.shadow-smooth {
+    box-shadow: 0 4px 20px 0px rgba(#CDD3D8, 0.3);
+}
+
+// IMAGE
+.img-placeholder {
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// GUTTER
+.row {
+    &.gutters-xs{
+        margin-left: -.5rem;
+        margin-right: -.5rem;
+        & > [class^=col]{
+            padding: 0 .5rem;
+        }
+    }
+}
