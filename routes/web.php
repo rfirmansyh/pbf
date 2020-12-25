@@ -54,6 +54,8 @@ Route::group(['prefix' => 'ui'], function () {
     Route::view('dashboard/member/peminjamans', 'ui/dashboard/modules/member/peminjamans/index');
     // Pengembalians
     Route::view('dashboard/member/pengembalians', 'ui/dashboard/modules/member/pengembalians/index');
+    //Dashboards
+    Route::view('dashboard/member', 'ui/dashboard/modules/member/index');
 });
 
 
