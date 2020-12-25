@@ -23,6 +23,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
+                        <label for="">Contoh Tanggal</label>
+                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
                         <label for="">Nama Lengkap</label>
                         <input type="text" class="form-control" name="name" placeholder="johndoe">
                     </div>

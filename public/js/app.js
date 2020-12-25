@@ -11,6 +11,16 @@
     }
 }(jQuery));
 
+if ( $('[data-input="datetimepicker"]') !== null || $('[data-input="datetimepicker"]') !== undefined ) {
+    $('[data-input="datetimepicker"]').datetimepicker({
+        timeZone:'Asia/Jakarta',
+        widgetPositioning: {
+            horizontal: 'auto',
+            vertical:'bottom'
+        },
+    });
+}
+
 var openFile = function(event, element) {
     const input = event.target;
     const reader = new FileReader();

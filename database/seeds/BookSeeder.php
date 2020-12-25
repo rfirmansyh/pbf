@@ -16,7 +16,10 @@ class BookSeeder extends Seeder
         $books = [];
 
         for ($i=0; $i < 10; $i++) { 
-            
+            $books[] = [
+                'title' => $faker->title,
+                'photo' => $faker->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker')
+            ];
         }
     }
 }
