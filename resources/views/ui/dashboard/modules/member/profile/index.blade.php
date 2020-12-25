@@ -9,7 +9,7 @@
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Hi, Firman!</h2></div>
+		<div class="col-md"><h2 class="section-title">Hi, Rahmad Firmansyah!</h2></div>
   </div>
 @endsection
 
@@ -20,7 +20,7 @@
               <div class="col-md">
                 <div class="card profile-widget">
                   <div class="profile-widget-header">
-                    <img alt="image" src="../public/img/users/avatar-1.png" class="rounded-circle profile-widget-picture">
+                    <img alt="image" src="{{ asset('img/users/avatar-1.png') }}" class="rounded-circle profile-widget-picture">
                     
               <div class="col-md">
                 <div class="card">
@@ -39,10 +39,7 @@
                           </div>
                           <div class="form-group col-md-6 col-12">
                             <label>Status</label>
-                            <input type="text" class="form-control" value="Aktif" required="">
-                            <div class="invalid-feedback">
-                              Please fill in the last name
-                            </div>
+                            <input type="text" class="form-control" value="Aktif" readonly/>
                           </div>
                         </div>
                         <div class="row">
