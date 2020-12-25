@@ -2,16 +2,16 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Detail Tempat Budidaya Saya')
+@section('header', 'Detail Profil Member')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
-    <div class="breadcrumb-item">Profil Mitra</div>
+    <div class="breadcrumb-item active"><a href="#">Member</a></div>
+    <div class="breadcrumb-item">Profil Member</div>
 @endsection
 @section('content-header')
 	<div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Detail Profil Mitra</h2></div>
+		<div class="col-md"><h2 class="section-title">Detail Profil Member</h2></div>
 		<div class="col-md-auto">
-			<a href="{{ url('ui/dashboard/mitra/budidaya/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Tampilkan Semua Mitra</a>
+			<a href="{{ url('ui/dashboard/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Tampilkan Semua Member</a>
 		</div>
 	</div>
 @endsection
@@ -35,11 +35,20 @@
                 <div class="d-flex align-items-center mb-3">Status:
                     <div class="badge badge-success  ml-2">Aktif</div>
                 </div>
+                <div class="border-bottom mb-3 pb-1">Email :
+                    <div class="font-weight-bold">johndea123@gmail.com</div>
+                </div>
                 <div class="border-bottom mb-3 pb-1">Nomor Hp :
                     <div class="font-weight-bold">085748572354</div>
                 </div>
                 <div class="border-bottom mb-3 pb-1">Bio :
                     <div class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit soluta recusandae consectetur exercitationem eaque labore culpa eligendi similique voluptates!</div>
+                </div>
+                <div class="border-bottom mb-3 pb-1">Alamat :
+                    <div class="font-weight-bold">Dusun Krajan, Kaliwates, Jember,Jawa Timur</div>
+                </div>
+                <div class="border-bottom mb-3 pb-1">Detail Alamat :
+                    <div class="font-weight-bold">jalan Mastrip 24</div>
                 </div>
             </div>
         </div>

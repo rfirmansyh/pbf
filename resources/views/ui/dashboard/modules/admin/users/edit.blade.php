@@ -90,6 +90,21 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="">Detail Alamat</label>
+                        <input 
+                            type="text"
+                            name="name"
+                            value="jalam mastrip 24" 
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Bio</label>
+                        <textarea rows="3"
+                            type="text"
+                            name="name"
+                            class="form-control">aku adalah seorang mahasiswa</textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="">Status Mitra</label>
                         <div class="custom-control custom-radio">
                             <input type="radio" id="aktif" name="status" class="custom-control-input" value="0" checked>

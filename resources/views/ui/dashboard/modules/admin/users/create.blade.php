@@ -73,6 +73,14 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="">Detail Alamat</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Bio</label>
+                        <textarea input type="text" rows="3" class="form-control" name="name"></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="">Status Mitra</label>
                         <div class="custom-control custom-radio">
                             <input type="radio" id="aktif" name="status" class="custom-control-input" value="0">
