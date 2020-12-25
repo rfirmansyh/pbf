@@ -2,16 +2,16 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Tambah Mitra Manual')
+@section('header', 'Tambah Peminjaman Buku')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
-    <div class="breadcrumb-item">Tambah Mitra Manual</div>
+    <div class="breadcrumb-item active"><a href="#">Peminjaman</a></div>
+    <div class="breadcrumb-item">Tambah Peminjaman Buku</div>
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-        <div class="col-md"><h2 class="section-title">Form Tambah Mitra</h2></div>
+        <div class="col-md"><h2 class="section-title">Form Tambah Peminjaman Buku</h2></div>
         <div class="col-md-auto">
-            <a href="{{ url('ui/dashboard/admin/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url('ui/dashboard/admin/peminjamans/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
   </div>
 @endsection
@@ -22,66 +22,25 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="">Contoh Tanggal</label>
-                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="name" placeholder="johndoe">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Foto Profil</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" onchange="openFile(event, '#img-user')">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Username</label>
-                        <input type="text" class="form-control" name="name" placeholder="johndoe">
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="d-flex align-items-center justify-content-between">Nomor Hp
-                            <small id="emailHelp" class="form-text text-muted tx-10">Ex. 85748572354 (Tanpa awalan 0)</small>
-                        </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon2">+62</span>
-                            </div>
-                            <input type="tel" class="form-control" placeholder="Masukan Nomor">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Bio</label>
-                        <textarea class="form-control" style="min-height: 100px"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Pilih Member</label>
-                        <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
-                            <option value="">Mamat</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <label for="">Buku Yang Dipinjam</label>
                         <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
                             <option value="">Buku Laravel</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Detail Alamat</label>
-                        <textarea class="form-control" style="min-height: 100px"></textarea>
+                        <label for="">Nama Peminjam</label>
+                        <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
+                            <option value="">Chelsea Olivier</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Status Mitra</label>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="aktif" name="status" class="custom-control-input" value="0">
-                            <label class="custom-control-label text-success font-weight-bold" for="aktif">Aktif</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="nonaktif" name="status" class="custom-control-input" value="1">
-                            <label class="custom-control-label text-gray font-weight-bold" for="nonaktif">Nonaktif</label>
-                        </div>
+                        <label for="">Tanggal Peminjaman</label>
+                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Tanggal Kembali</label>
+                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
                     </div>
                     <button class="btn btn-lg btn-primary ml-auto d-block">Tambahkan</button>                    
                 </div>
