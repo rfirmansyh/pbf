@@ -2,16 +2,16 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Mitra Aplikasi ABJA')
+@section('header', 'Pengembalian Buku')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
+    <div class="breadcrumb-item active"><a href="#">Pengembalian</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Daftar Mitra</h2></div>
+		<div class="col-md"><h2 class="section-title">Daftar Pengembalian Buku</h2></div>
 		<div class="col-md-auto">
-        	<a href="{{ url('ui/dashboard/admin/users/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Mitra Manual</a>
+        	<a href="{{ url('ui/dashboard/admin/pengembalians/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Pengembalian Buku</a>
         </div>
   </div>
 @endsection
@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-wrap">
 					<div class="card-header">
-						<h4>Mitra Baru</h4>
+						<h4>Total Buku Dipinjam</h4>
 					</div>
 					<div class="card-body">
 						8
@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-wrap">
 					<div class="card-header">
-						<h4>Total Mitra</h4>
+						<h4>Total Buku Terlambat</h4>
 					</div>
 					<div class="card-body">
 						20
@@ -71,38 +71,74 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Foto</th>
-                            <th>Email</th>
-                            <th>Nama</th>
-                            <th>Budidaya</th>
+                            <th width="50px">Foto Buku</th>
+                            <th>Buku</th>
+                            <th>Nama Peminjaman</th>
+                            <th>Tanggal Kembali</th>
+                            <th>Denda</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 0; $i < 3; $i++)
+                         @for ($i = 0; $i < 3; $i++)
                         <tr>
                             <td>{{ $i+1 }}</td>
-                            <td class="align-middle">
-                                <div class="table-img"><img src="{{ asset('img/users/2.jpg') }}" alt=""></div>
-                            </td>
-                            <td>chealseolivierelizaberth@gmail.com</td>
-                            <td>Chelsea Olivier</td>
-                            <td>20</td>
-                            <td><span class="badge badge-success">Aktif</span></td>
                             <td>
+                                <div class="img-table">
+                                <img src="{{ asset('img/laravel.jpg') }}" alt="">
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                Belajar Laravel
+                            </td>
+                            <td class="align-middle"><a href="{{ url('ui/dashboard/admin/users/show/') }}">Chelsea Olivier<a></td>
+                            <td class="align-middle">
+                                20 Sept 2020
+                            </td>
+                            <td class="align-middle"><div class="text-danger">
+                                Rp 5000
+                            </div></td>
+                            <td class="align-middle"><span class="badge badge-danger">Terlambat</span></td>
+                            <td class="align-middle">
                                 <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
+                                <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                            </td>
+                        <tr>
+                        @endfor
+                        <tr>
+                            <td>{{ $i+1 }}</td>
+                            <td>
+                                <div class="img-table">
+                                <img src="{{ asset('img/laravel.jpg') }}" alt="">
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                Belajar Laravel
+                            </td>
+                            <td class="align-middle"><a href="{{ url('ui/dashboard/admin/users/show/') }}">Chelsea Olivier<a></td>
+                            <td class="align-middle">
+                                20 Sept 2020
+                            </td>
+                            <td class="align-middle">
+                                Rp 0
+                            </td>
+                            <td class="align-middle"><span class="badge badge-secondary">Dikembalikan</span></td>
+                            <td class="align-middle">
+                                <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
-                        @endfor
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('style')
@@ -110,6 +146,17 @@
     <link rel="stylesheet" href="{{ asset('vendors/datatable/datatable.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
     <style>
+        .img-table {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .img-table img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .dataTables_wrapper .dataTables_length .custom-select {
             padding-right: 45px !important;
         }
