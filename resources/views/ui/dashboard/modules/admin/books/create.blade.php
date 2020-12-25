@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Jumlah Stok</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="number" class="form-control" name="name">
                     </div>
                     <div class="form-group">
                         <label for="">Tempat Rak</label>
