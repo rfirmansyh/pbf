@@ -26,9 +26,8 @@
                 <div class="row mb-3">
                     <div class="col">
                         <h3 class="mb-0">John Doe</h3>
-                        <h6 class="text-secondary">johndoe</h6>
                     </div>
-                    <div class="col-auto"><a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a></div>
+                    <div class="col-auto"><a href="{{ url('ui/dashboard/member/profile/edit') }}" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a></div>
                 </div>
                 <div class="d-flex align-items-center mb-3">Status:
                     <div class="badge badge-success  ml-2">Aktif</div>

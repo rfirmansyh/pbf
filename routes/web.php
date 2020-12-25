@@ -52,7 +52,7 @@ Route::group(['prefix' => 'ui'], function () {
     // Peminjamans
     Route::view('dashboard/admin/peminjamans', 'ui/dashboard/modules/admin/peminjamans/index');
     Route::view('dashboard/admin/peminjamans/create', 'ui/dashboard/modules/admin/peminjamans/create');
-    //user
+    //User
     Route::view('dashboard/admin/users', 'ui/dashboard/modules/admin/users/index');
     Route::view('dashboard/admin/users/show', 'ui/dashboard/modules/admin/users/show');
 
@@ -69,6 +69,7 @@ Route::group(['prefix' => 'ui'], function () {
     Route::view('dashboard/member', 'ui/dashboard/modules/member/index');
     //Profile
     Route::view('dashboard/member/profile', 'ui/dashboard/modules/member/profile/index');
+    Route::view('dashboard/member/profile/edit', 'ui/dashboard/modules/member/profile/edit');
 });
 
 
