@@ -2,14 +2,14 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Tambah Mitra Manual')
+@section('header', 'Tambah Member Baru')
 @section('breadcrumb')
     <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
-    <div class="breadcrumb-item">Tambah Mitra Manual</div>
+    <div class="breadcrumb-item">Tambah Member Baru</div>
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-        <div class="col-md"><h2 class="section-title">Form Tambah Mitra</h2></div>
+        <div class="col-md"><h2 class="section-title">Form Tambah Member Baru</h2></div>
         <div class="col-md-auto">
             <a href="{{ url('ui/dashboard/admin/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
@@ -43,8 +43,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Username</label>
-                        <input type="text" class="form-control" name="name" placeholder="johndoe">
+                        <label for="">Email</label>
+                        <input type="email" class="form-control" name="name" placeholder="johndoe123@gmail.com">
                     </div>
                     <div class="form-group">
                         <label for="" class="d-flex align-items-center justify-content-between">Nomor Hp
@@ -56,10 +56,6 @@
                             </div>
                             <input type="tel" class="form-control" placeholder="Masukan Nomor">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Bio</label>
-                        <textarea class="form-control" style="min-height: 100px"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Alamat</label>
@@ -75,10 +71,6 @@
                         <select class="custom-select mb-2">
                             <option selected>Pilih Desa</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Detail Alamat</label>
-                        <textarea class="form-control" style="min-height: 100px"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Status Mitra</label>
