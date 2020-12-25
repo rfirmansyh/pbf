@@ -51,11 +51,13 @@
                     </div>
                     <div class="form-group">
                         <label for="">Jumlah Stok</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="number" class="form-control" name="name">
                     </div>
                     <div class="form-group">
                         <label for="">Tempat Rak</label>
-                        <input type="text" class="form-control" name="name">
+                        <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%">
+                            <option value="">Rak Atas Gedung</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">Deskripsi Buku</label>
