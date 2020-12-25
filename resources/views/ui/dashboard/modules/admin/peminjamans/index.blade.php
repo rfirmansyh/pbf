@@ -103,6 +103,7 @@
                             <td class="align-middle">
                                 <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                             </td>
                         <tr>
@@ -128,6 +129,7 @@
                             <td class="align-middle">
                                 <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
