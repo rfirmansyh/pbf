@@ -60,16 +60,16 @@
                     <div class="form-group">
                         <label for="">Alamat</label>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Provinsi</option>
+                            <option selected>Jawa Timur</option>
                         </select>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Kota/Kabupaten</option>
+                            <option selected>Jember</option>
                         </select>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Kecamatan</option>
+                            <option selected>Kaliwates</option>
                         </select>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Desa</option>
+                            <option selected>Dusun Krajan</option>
                         </select>
                     </div>
                     <div class="form-group">
