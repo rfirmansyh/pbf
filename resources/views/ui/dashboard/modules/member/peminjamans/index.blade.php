@@ -71,6 +71,7 @@
                             <th>Nama Buku</th>
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Kembali</th>
+                            <th>Nama Petugas</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -81,6 +82,7 @@
                             <td class="align-middle">Belajar Laravel</td>
                             <td>20 Oct 2020</td>
                             <td>20 Sept 2020</td>
+                            <td>Rahmad Firmansyah</td>
                             <td><span class="badge badge-secondary">Dipinjam</span></td>
                         </tr>
                         @endfor
@@ -91,6 +93,7 @@
                             </td>
                             <td>20 Oct 2020</td>
                             <td>20 Sept 2020</td>
+                            <td>Rahmad Firmansyah</td>
                             <td><span class="badge badge-danger">Terlambat</span></td>
                         </tr>
                     </tbody>
@@ -171,7 +174,7 @@
                     "info": "Menampilkan _PAGE_ dari _PAGES_ page",
                     "infoEmpty": "Tidak Ada Data",
                     "infoFiltered": "(filtered from _MAX_ total records)",
-                    "search": "Cari Data Mitra:"
+                    "search": "Cari Data Peminjaman:"
                 },
             });
 
