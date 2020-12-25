@@ -27,6 +27,14 @@
 //     Route::view('/users/edit', 'ui/dashboard/modules/admin/users/edit');
 // });
 
+Route::group(['prefix' => 'back'], function() {
+
+    // ADMIN
+
+    // MEMBER
+
+});
+
 Route::group(['prefix' => 'ui'], function () {
     // Route::view('/login', 'ui/auth/login');
     // Route::view('/register', 'ui/auth/register');
@@ -44,6 +52,9 @@ Route::group(['prefix' => 'ui'], function () {
     // Peminjamans
     Route::view('dashboard/admin/peminjamans', 'ui/dashboard/modules/admin/peminjamans/index');
     Route::view('dashboard/admin/peminjamans/create', 'ui/dashboard/modules/admin/peminjamans/create');
+    //user
+    Route::view('dashboard/admin/users', 'ui/dashboard/modules/admin/users/index');
+    Route::view('dashboard/admin/users/show', 'ui/dashboard/modules/admin/users/show');
 
 
 
