@@ -22,13 +22,8 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-<<<<<<< Updated upstream
-                     <div class="form-group">
-                        <label for="">Buku Yang Dipinjam</label>
-=======
                     <div class="form-group">
                         <label for="">Nama Buku</label>
->>>>>>> Stashed changes
                         <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
                             <option value="">Buku Laravel</option>
                         </select>
@@ -40,21 +35,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-<<<<<<< Updated upstream
-                        <label for="">Tanggal Peminjaman</label>
-                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Tanggal Kembali</label>
-                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
-=======
                         <label class="control-label" for="date">Tanggal Peminjaman</label>
                         <input class="form-control" id="date" name="date"  type="date"/>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="date">Tanggal Pengembalian</label>
                         <input class="form-control" id="date" name="date"  type="date"/>
->>>>>>> Stashed changes
                     </div>
                     <button class="btn btn-lg btn-primary ml-auto d-block">Tambahkan</button>                    
                 </div>
