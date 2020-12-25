@@ -52,6 +52,7 @@ Route::group(['prefix' => 'ui'], function () {
     // Peminjamans
     Route::view('dashboard/admin/peminjamans', 'ui/dashboard/modules/admin/peminjamans/index');
     Route::view('dashboard/admin/peminjamans/create', 'ui/dashboard/modules/admin/peminjamans/create');
+    Route::view('dashboard/admin/peminjamans/edit', 'ui/dashboard/modules/admin/peminjamans/edit');
     //user
     Route::view('dashboard/admin/users', 'ui/dashboard/modules/admin/users/index');
     Route::view('dashboard/admin/users/show', 'ui/dashboard/modules/admin/users/show');
