@@ -11,7 +11,7 @@
   <div class="row align-items-center">
 		<div class="col-md"><h2 class="section-title">Daftar Peminjaman</h2></div>
 		<div class="col-md-auto">
-        	<a href="{{ url('ui/dashboard/admin/users/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Data Peminjaman</a>
+        	<a href="{{ url('ui/dashboard/admin/peminjamans/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Data Peminjaman</a>
         </div>
   </div>
 @endsection
