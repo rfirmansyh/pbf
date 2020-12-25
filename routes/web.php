@@ -27,6 +27,14 @@
 //     Route::view('/users/edit', 'ui/dashboard/modules/admin/users/edit');
 // });
 
+Route::group(['prefix' => 'back'], function() {
+
+    // ADMIN
+
+    // MEMBER
+
+});
+
 Route::group(['prefix' => 'ui'], function () {
     // Route::view('/login', 'ui/auth/login');
     // Route::view('/register', 'ui/auth/register');
