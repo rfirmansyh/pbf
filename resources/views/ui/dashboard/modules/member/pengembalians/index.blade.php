@@ -2,17 +2,14 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Mitra Aplikasi ABJA')
+@section('header', 'Pengembalian Buku Kamu')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
+    <div class="breadcrumb-item active"><a href="#">Pengembalian</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Daftar Mitra</h2></div>
-		<div class="col-md-auto">
-        	<a href="{{ url('ui/dashboard/admin/users/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Mitra Manual</a>
-        </div>
+		<div class="col-md"><h2 class="section-title">Daftar Pengembalian</h2></div>
   </div>
 @endsection
 
@@ -27,7 +24,7 @@
                 </div>
                 <div class="card-wrap">
 					<div class="card-header">
-						<h4>Mitra Baru</h4>
+						<h4>Total Buku Dikembalikan</h4>
 					</div>
 					<div class="card-body">
 						8
@@ -42,7 +39,7 @@
                 </div>
                 <div class="card-wrap">
 					<div class="card-header">
-						<h4>Total Mitra</h4>
+						<h4>Total Buku Terlambat</h4>
 					</div>
 					<div class="card-body">
 						20
@@ -71,32 +68,29 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Foto</th>
-                            <th>Email</th>
-                            <th>Nama</th>
-                            <th>Budidaya</th>
+                            <th>Nama Buku</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
                             <th>Status</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @for ($i = 0; $i < 3; $i++)
                         <tr>
                             <td>{{ $i+1 }}</td>
-                            <td class="align-middle">
-                                <div class="table-img"><img src="{{ asset('img/users/2.jpg') }}" alt=""></div>
-                            </td>
-                            <td>chealseolivierelizaberth@gmail.com</td>
-                            <td>Chelsea Olivier</td>
-                            <td>20</td>
-                            <td><span class="badge badge-success">Aktif</span></td>
-                            <td>
-                                <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
-                            </td>
+                            <td class="align-middle">Belajar Laravel</td>
+                            <td>20 Oct 2020</td>
+                            <td>20 Sept 2020</td>
+                            <td><span class="badge badge-secondary">Dikembalikan</span></td>
                         </tr>
                         @endfor
+                        <tr>
+                            <td>{{ $i+1 }}</td>
+                            <td class="align-middle">Belajar Laravel</td>
+                            <td>20 Oct 2020</td>
+                            <td>20 Sept 2020</td>
+                            <td><span class="badge badge-danger">Terlambat</span></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

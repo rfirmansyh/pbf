@@ -89,8 +89,8 @@
                             <td class="align-middle">
                                 Belajar Laravel
                             </td>
-                            <td>Chelsea Olivier</td>
-                            <td>20</td>
+                            <td>20 Oct 2020</td>
+                            <td>20 Sept 2020</td>
                             <td><span class="badge badge-danger">Terlambat</span></td>
                         </tr>
                     </tbody>
