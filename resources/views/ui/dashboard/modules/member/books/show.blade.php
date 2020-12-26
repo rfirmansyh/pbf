@@ -25,10 +25,10 @@
 
                 </div>
                 <div class="d-flex align-items-center mb-3">Jumlah Stok:
-                    <div class="badge badge-warning  ml-2">04</div>
+                    <div class="badge badge-warning  ml-2">010</div>
                 </div>
                 <div class="border-bottom mb-3 pb-1">Penulis :
-                    <div class="font-weight-bold">johndoe@mail.com</div>
+                    <div class="font-weight-bold">SomePeople</div>
                 </div>
                 <div class="border-bottom mb-3 pb-1">Penerbit :
                     <div class="font-weight-bold">PT Elex Media Komputindo</div>

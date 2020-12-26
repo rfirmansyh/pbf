@@ -1,6 +1,6 @@
 @extends('ui.dashboard._layouts.app-dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Pengembalian')
 
 @section('header', 'Pengembalian Buku Kamu')
 @section('breadcrumb')

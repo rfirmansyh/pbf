@@ -1,15 +1,15 @@
 @extends('ui.dashboard._layouts.app-dashboard')
 
-@section('title', 'Edit Profil')
+@section('title', 'Edit Profile')
 
-@section('header', 'Edit Profil')
+@section('header', 'Edit Profile')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Edit Profil</a></div>
+    <div class="breadcrumb-item active"><a href="#">Edit Profile</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-        <div class="col-md"><h2 class="section-title">Form Edit Profil</h2></div>
+        <div class="col-md"><h2 class="section-title">Form Edit Profile</h2></div>
         <div class="col-md-auto">
             <a href="{{ url('ui/dashboard/admin/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
