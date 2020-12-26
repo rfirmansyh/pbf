@@ -1,6 +1,6 @@
 @extends('ui.dashboard._layouts.app-dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Daftar Buku')
 
 @section('header', 'Daftar Buku')
 @section('breadcrumb')
@@ -53,16 +53,17 @@
                                         <div class="font-weight-bold"> SomePeople </div>
                                     </div>
                                     <div class="border-bottom mb-1 pb-1"> Stok Buku :
-                                        <div class="font-weight-bold">10</div>
+                                        <div class="font-weight-bold">010</div>
                                     </div>
                                     <div class="">Deskripsi Buku :
-                                        <div class= "font-weight-bold"> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</div>
+                                        <div class= "font-weight-bold">Buku dengan judul Belajar Laravel ini merupakan buku 
+                                        dasar dalam...</div>
                                     </div>
                                 </div>
                             </div>
 						</div>
 						<div class="card-footer border-top border-light d-flex justify-content-end">
-							<a href="{{ url('ui/dashboard/mitra/budidaya/show') }}" class="btn btn-sm btn-primary">Detail</a>
+							<a href="{{ url('ui/dashboard/member/books/show') }}" class="btn btn-sm btn-primary">Detail</a>
 						</div>
                     </div>
                 </div>    

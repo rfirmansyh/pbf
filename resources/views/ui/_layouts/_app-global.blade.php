@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('vendors/bs-datetimepicker/bootstrap-datetimepicker.min.css') }}">
     @yield('style')
 
-    <title>SAU | @yield('title')</title>
+    <title>PERPUS ID | @yield('title')</title>
 </head>
 <body style="overflow-x: hidden; overflow-y: auto;">
     @yield('content-extends')

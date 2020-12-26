@@ -1,17 +1,17 @@
 @extends('ui.dashboard._layouts.app-dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Edit Profile')
 
-@section('header', 'Tambah Member Baru')
+@section('header', 'Edit Profile')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
-    <div class="breadcrumb-item">Tambah Member Baru</div>
+    <div class="breadcrumb-item active"><a href="#">Edit Profile</a></div>
+    {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-        <div class="col-md"><h2 class="section-title">Form Tambah Member Baru</h2></div>
+        <div class="col-md"><h2 class="section-title">Form Edit Profile</h2></div>
         <div class="col-md-auto">
-            <a href="{{ url('ui/dashboard/admin/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url('ui/dashboard/member/profile/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
   </div>
 @endsection
@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-body">
                     <div id="img-card">
-                        <img src="" class="img-fluid" id="img-user">
+                        <img src="{{ asset('img/users/2.jpg') }}" class="img-fluid" id="img-user">
                     </div>
                 </div>
             </div>
@@ -33,57 +33,66 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="">Nama Lengkap</label>
-                        <input type="text" class="form-control" name="name" placeholder="johndoe">
+                        <input 
+                            type="text" 
+                            name="name"
+                            value="John Doe"
+                            class="form-control" placeholder="johndoe">
                     </div>
                     <div class="form-group">
                         <label for="">Foto Profil</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" onchange="openFile(event, '#img-user')">
+                            <input 
+                                type="file" 
+                                name="photo"
+                                id="customFile" onchange="openFile(event, '#img-user')"
+                                class="custom-file-input">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" name="name" placeholder="johndoe123@gmail.com">
+                        <input 
+                            type="text"
+                            name="name"
+                            value="johndoe@mail.com" 
+                            placeholder="johndoe" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input 
+                            type="pass"
+                            name="name"
+                            value="johndoe123" 
+                            placeholder="johndoe" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="d-flex align-items-center justify-content-between">Nomor Hp
-                            <small id="emailHelp" class="form-text text-muted tx-10">Ex. 85748572354 (Tanpa awalan 0)</small>
+                            <small class="form-text text-muted tx-10">Ex. 85748572354 (Tanpa awalan 0)</small>
                         </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon2">+62</span>
+                              <span class="input-group-text">+62</span>
                             </div>
-                            <input type="tel" class="form-control" placeholder="Masukan Nomor">
+                            <input 
+                                type="tel" 
+                                name="phone"
+                                value="85748572354"
+                                class="form-control" 
+                                placeholder="Masukan Nomor">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="">Alamat</label>
-                        <select class="custom-select mb-2">
-                            <option selected>Jawa Timur</option>
-                        </select>
-                        <select class="custom-select mb-2">
-                            <option selected>Jember</option>
-                        </select>
-                        <select class="custom-select mb-2">
-                            <option selected>Kaliwates</option>
-                        </select>
-                        <select class="custom-select mb-2">
-                            <option selected>Dusun Krajan</option>
-                        </select>
+                        <textarea 
+                            name="bio"
+                            class="form-control" 
+                            style="min-height: 100px">Jalan PB Sudirman no.42</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="">Detail Alamat</label>
-                        <input type="text" class="form-control" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Bio</label>
-                        <textarea input type="text" rows="3" class="form-control" name="name"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Status Mitra</label>
+                        <label for="">Status Member</label>
                         <div class="custom-control custom-radio">
-                            <input type="radio" id="aktif" name="status" class="custom-control-input" value="0">
+                            <input type="radio" id="aktif" name="status" class="custom-control-input" value="0" checked>
                             <label class="custom-control-label text-success font-weight-bold" for="aktif">Aktif</label>
                         </div>
                         <div class="custom-control custom-radio">
@@ -91,7 +100,7 @@
                             <label class="custom-control-label text-gray font-weight-bold" for="nonaktif">Nonaktif</label>
                         </div>
                     </div>
-                    <button class="btn btn-lg btn-primary ml-auto d-block">Tambahkan</button>                    
+                    <button class="btn btn-lg btn-warning ml-auto d-block">Ubah Profile</button>                    
                 </div>
             </div>
         </div>

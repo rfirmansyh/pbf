@@ -2,14 +2,14 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Edit Profil Mitra')
+@section('header', 'Edit Member')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
-    <div class="breadcrumb-item">Edit Profil Mitra</div>
+    <div class="breadcrumb-item active"><a href="#">Member</a></div>
+    <div class="breadcrumb-item">Edit Profil Member</div>
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-        <div class="col-md"><h2 class="section-title">Form Edit Profil Mitra</h2></div>
+        <div class="col-md"><h2 class="section-title">Form Edit Member</h2></div>
         <div class="col-md-auto">
             <a href="{{ url('ui/dashboard/admin/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
@@ -51,12 +51,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Username</label>
+                        <label for="">Email</label>
                         <input 
-                            type="text"
+                            type="email"
                             name="name"
-                            value="johndoe" 
-                            placeholder="johndoe" class="form-control">
+                            value="johndoe123@gmail.com" 
+                            class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="" class="d-flex align-items-center justify-content-between">Nomor Hp
@@ -75,30 +75,34 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Bio</label>
-                        <textarea 
-                            name="bio"
-                            class="form-control" 
-                            style="min-height: 100px">Hello I'm John Doe</textarea>
-                    </div>
-                    <div class="form-group">
                         <label for="">Alamat</label>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Provinsi</option>
+                            <option selected>Jawa Timur</option>
                         </select>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Kota/Kabupaten</option>
+                            <option selected>Jember</option>
                         </select>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Kecamatan</option>
+                            <option selected>Kaliwates</option>
                         </select>
                         <select class="custom-select mb-2">
-                            <option selected>Pilih Desa</option>
+                            <option selected>Dusun Krajan</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="">Detail Alamat</label>
-                        <textarea class="form-control" style="min-height: 100px"></textarea>
+                        <input 
+                            type="text"
+                            name="name"
+                            value="jalam mastrip 24" 
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Bio</label>
+                        <textarea rows="3"
+                            type="text"
+                            name="name"
+                            class="form-control">aku adalah seorang mahasiswa</textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Status Mitra</label>

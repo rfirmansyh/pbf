@@ -11,7 +11,7 @@
   <div class="row align-items-center">
 		<div class="col-md"><h2 class="section-title">Daftar Buku</h2></div>
 		<div class="col-md-auto">
-        	<a href="{{ url('ui/dashboard/mitra/budidaya/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Buku Baru</a>
+        	<a href="{{ url('ui/dashboard/admin/books/create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Buku Baru</a>
         </div>
   </div>
 @endsection
@@ -56,17 +56,18 @@
                                         <div class="font-weight-bold"> SomePeople </div>
                                     </div>
                                     <div class="border-bottom mb-1 pb-1"> Stok Buku :
-                                        <div class="font-weight-bold">10</div>
+                                        <div class="font-weight-bold">010</div>
                                     </div>
                                     <div class="">Deskripsi Buku :
-                                        <div class= "font-weight-bold"> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</div>
+                                        <div class= "font-weight-bold">Buku dengan judul Belajar Laravel ini merupakan buku 
+                                        dasar dalam...</div>
                                     </div>
                                 </div>
                             </div>
 						</div>
 						<div class="card-footer border-top border-light d-flex justify-content-end">
-							<a href="{{ url('ui/dashboard/mitra/budidaya/edit') }}" class="btn btn-sm btn-warning mr-1">Ubah</a>
-							<a href="{{ url('ui/dashboard/mitra/budidaya/show') }}" class="btn btn-sm btn-primary">Detail</a>
+							<a href="{{ url('ui/dashboard/admin/books/edit') }}" class="btn btn-sm btn-warning mr-1">Ubah</a>
+							<a href="{{ url('ui/dashboard/admin/books/show') }}" class="btn btn-sm btn-primary">Detail</a>
 						</div>
                     </div>
                 </div>    

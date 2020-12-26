@@ -1,19 +1,11 @@
 @extends('ui.dashboard._layouts.app-dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Profile')
 
-@section('header', 'Detail Profil Member')
+@section('header', 'Profile')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Member</a></div>
-    <div class="breadcrumb-item">Profil Member</div>
-@endsection
-@section('content-header')
-	<div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Detail Profil Member</h2></div>
-		<div class="col-md-auto">
-			<a href="{{ url('ui/dashboard/users/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Tampilkan Semua Member</a>
-		</div>
-	</div>
+    <div class="breadcrumb-item active"><a href="#">Profile</a></div>
+    {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 
 @section('content')
@@ -29,26 +21,23 @@
                 <div class="row mb-3">
                     <div class="col">
                         <h3 class="mb-0">John Doe</h3>
-                        <h6 class="text-secondary">johndoe</h6>
                     </div>
+                    <div class="col-auto"><a href="{{ url('ui/dashboard/member/profile/edit') }}" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></a></div>
                 </div>
                 <div class="d-flex align-items-center mb-3">Status:
                     <div class="badge badge-success  ml-2">Aktif</div>
                 </div>
                 <div class="border-bottom mb-3 pb-1">Email :
-                    <div class="font-weight-bold">johndea123@gmail.com</div>
+                    <div class="font-weight-bold">johndoe@mail.com</div>
+                </div>
+                <div class="border-bottom mb-3 pb-1">Password :
+                    <div class="font-weight-bold">johndoe123</div>
                 </div>
                 <div class="border-bottom mb-3 pb-1">Nomor Hp :
                     <div class="font-weight-bold">085748572354</div>
                 </div>
-                <div class="border-bottom mb-3 pb-1">Bio :
-                    <div class="font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. A odit soluta recusandae consectetur exercitationem eaque labore culpa eligendi similique voluptates!</div>
-                </div>
                 <div class="border-bottom mb-3 pb-1">Alamat :
-                    <div class="font-weight-bold">Dusun Krajan, Kaliwates, Jember,Jawa Timur</div>
-                </div>
-                <div class="border-bottom mb-3 pb-1">Detail Alamat :
-                    <div class="font-weight-bold">jalan Mastrip 24</div>
+                    <div class="font-weight-bold">Jalan PB Sudirman no.42</div>
                 </div>
             </div>
         </div>

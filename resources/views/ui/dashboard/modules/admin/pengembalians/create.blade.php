@@ -2,16 +2,16 @@
 
 @section('title', 'Dashboard')
 
-@section('header', 'Tambah Peminjaman Buku')
+@section('header', 'Tambah Pengembalian Buku')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Peminjaman</a></div>
-    <div class="breadcrumb-item">Tambah Peminjaman Buku</div>
+    <div class="breadcrumb-item active"><a href="#">Pengembalian</a></div>
+    <div class="breadcrumb-item">Tambah Pengembalian Buku</div>
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-        <div class="col-md"><h2 class="section-title">Form Tambah Peminjaman Buku</h2></div>
+        <div class="col-md"><h2 class="section-title">Form Tambah Pengembalian Buku</h2></div>
         <div class="col-md-auto">
-            <a href="{{ url('ui/dashboard/admin/peminjamans/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url('ui/dashboard/admin/pengembalians/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
   </div>
 @endsection
@@ -22,8 +22,8 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <div class="form-group">
-                        <label for="">Nama Buku</label>
+                     <div class="form-group">
+                        <label for="">Buku Yang Dipinjam</label>
                         <select name="" id="" class="selectpicker" data-style="form-control" data-width="100%" data-live-search="true">
                             <option value="">Buku Laravel</option>
                         </select>
@@ -35,12 +35,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="date">Tanggal Peminjaman</label>
-                        <input class="form-control" id="date" name="date"  type="date"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="date">Tanggal Pengembalian</label>
-                        <input class="form-control" id="date" name="date"  type="date"/>
+                        <label for="">Tanggal Kembali</label>
+                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
                     </div>
                     <button class="btn btn-lg btn-primary ml-auto d-block">Tambahkan</button>                    
                 </div>
@@ -48,6 +44,16 @@
         </div>
         <div class="col-lg-6 col-xl-4 col-xl-auto">
             <div class="row">
+                <div class="col-md-6 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Foto Member</h6>
+                            <div id="img-card">
+                                <img src="" class="img-fluid" id="img-user">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-6 col-lg-12">
                     <div class="card">
                         <div class="card-body">
