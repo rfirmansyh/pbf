@@ -7,11 +7,6 @@
     <div class="breadcrumb-item active"><a href="#">Profile</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
-@section('content-header')
-	<div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Hai, John Doe</h2></div>
-	</div>
-@endsection
 
 @section('content')
 
