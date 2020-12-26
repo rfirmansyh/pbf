@@ -36,13 +36,6 @@
                         <input type="text" class="form-control" name="name" placeholder="johndoe">
                     </div>
                     <div class="form-group">
-                        <label for="">Foto Profil</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" onchange="openFile(event, '#img-user')">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="">Email</label>
                         <input type="email" class="form-control" name="name" placeholder="johndoe123@gmail.com">
                     </div>
@@ -81,7 +74,7 @@
                         <textarea input type="text" rows="3" class="form-control" name="name"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="">Status Mitra</label>
+                        <label for="">Status Member</label>
                         <div class="custom-control custom-radio">
                             <input type="radio" id="aktif" name="status" class="custom-control-input" value="0">
                             <label class="custom-control-label text-success font-weight-bold" for="aktif">Aktif</label>
