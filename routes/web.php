@@ -67,6 +67,7 @@ Route::group(['prefix' => 'ui'], function () {
     /* MEMBER */
     // Books
     Route::view('dashboard/member/books', 'ui/dashboard/modules/member/books/index');
+    Route::view('dashboard/member/books/show', 'ui/dashboard/modules/member/books/show');
     // Peminjamans
     Route::view('dashboard/member/peminjamans', 'ui/dashboard/modules/member/peminjamans/index');
     // Pengembalians
