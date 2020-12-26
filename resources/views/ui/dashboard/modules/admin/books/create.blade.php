@@ -11,7 +11,7 @@
   <div class="row align-items-center">
         <div class="col-md"><h2 class="section-title">Form Tambah Buku</h2></div>
         <div class="col-md-auto">
-            <a href="{{ url('ui/dashboard/mitra/budidaya/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url('ui/dashboard/admin/books/') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
   </div>
 @endsection
