@@ -1,6 +1,6 @@
 @extends('ui.dashboard._layouts.app-dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Daftar Buku')
 
 @section('header', 'Daftar Buku')
 @section('breadcrumb')
@@ -62,7 +62,7 @@
                             </div>
 						</div>
 						<div class="card-footer border-top border-light d-flex justify-content-end">
-							<a href="{{ url('ui/dashboard/mitra/budidaya/show') }}" class="btn btn-sm btn-primary">Detail</a>
+							<a href="{{ url('ui/dashboard/member/books/show') }}" class="btn btn-sm btn-primary">Detail</a>
 						</div>
                     </div>
                 </div>    
