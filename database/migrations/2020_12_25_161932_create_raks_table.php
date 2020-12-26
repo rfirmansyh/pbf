@@ -16,7 +16,7 @@ class CreateRaksTable extends Migration
         Schema::create('raks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('location');
             $table->timestamps();
         });

@@ -27,13 +27,17 @@
 //     Route::view('/users/edit', 'ui/dashboard/modules/admin/users/edit');
 // });
 
-Route::group(['prefix' => 'back'], function() {
+///============== THIS IS BACKEND ROUTES ==============\\\
 
-    // ADMIN
-
-    // MEMBER
-
+// ADMIN
+Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
+    Route::resource('books', 'BookController');
 });
+
+// MEMBER
+
+///============== THIS IS END OF BACKEND ROUTES ==============\\\
+
 
 Route::group(['prefix' => 'ui'], function () {
     // Route::view('/login', 'ui/auth/login');

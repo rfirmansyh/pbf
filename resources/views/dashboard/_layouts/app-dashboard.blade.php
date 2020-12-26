@@ -1,4 +1,4 @@
-@extends('_layouts._app-global')
+@extends('_layouts.app-global')
 
 @section('content-extends')
     <div id="app">
@@ -16,6 +16,12 @@
                         @yield('breadcrumb')
                     </div>
                 </div>
+
+                @if(Session::has('alert-message'))
+                    <div class="alert alert-{{ Session::get('alert-type') }}">
+                    {{ Session::get('alert-message') }}
+                    </div>
+                @endif
 
                 <div class="section-body">
                     <div class="mb-4">

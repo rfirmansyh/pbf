@@ -17,9 +17,21 @@ class BookSeeder extends Seeder
 
         for ($i=0; $i < 10; $i++) { 
             $books[] = [
-                'title' => $faker->title,
-                'photo' => $faker->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker')
+                'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+                'photo' => null,
+                'code' => $faker->ean8,
+                'description' => $faker->paragraph($nbSentences = 1, $variableNbSentences = true),
+                'writer' => $faker->name($gender = null),
+                'publisher' => $faker->name($gender = null),
+                'year_published' => $faker->year($max = 'now'),
+                'stock' => rand(1, 100),
+                'created_at' => $faker->dateTime($max = 'now', $timezone = 'Asia/Jakarta'),
+                'updated_at' => null,
+                'rak_id' => rand(1,3)
             ];
         }
+
+        DB::table('books')->insert($books);
+        $this->command->info("Data Dummy Books berhasil diinsert");
     }
 }

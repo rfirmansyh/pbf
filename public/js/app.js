@@ -11,15 +11,6 @@
     }
 }(jQuery));
 
-if ( $('[data-input="datetimepicker"]') !== null || $('[data-input="datetimepicker"]') !== undefined ) {
-    $('[data-input="datetimepicker"]').datetimepicker({
-        timeZone:'Asia/Jakarta',
-        widgetPositioning: {
-            horizontal: 'auto',
-            vertical:'bottom'
-        },
-    });
-}
 
 var openFile = function(event, element) {
     const input = event.target;
@@ -32,6 +23,12 @@ var openFile = function(event, element) {
     reader.readAsDataURL(input.files[0])
 }
 
+if ( $('.custom-file-input') !== null || $('.custom-file-input') !== undefined )
+document.querySelector('.custom-file-input').addEventListener('change',function(e){
+    var fileName = this.files[0].name;
+    var nextSibling = e.target.nextElementSibling
+    nextSibling.innerText = fileName
+})
 
 
 // Jquery Handle
@@ -43,6 +40,15 @@ $(function() {
             $(this).prev().prop('type', 'password')
         }
         e.preventDefault()
-    })
+    });
 
+    if ( $('[data-input="datetimepicker"]') !== null || $('[data-input="datetimepicker"]') !== undefined ) {
+        $('[data-input="datetimepicker"]').datetimepicker({
+            timeZone:'Asia/Jakarta',
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical:'bottom'
+            },
+        });
+    }
 })
