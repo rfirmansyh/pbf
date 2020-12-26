@@ -35,12 +35,12 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="date">Tanggal Peminjaman</label>
-                        <input class="form-control" id="date" name="date"  type="date"/>
+                        <label for="">Tanggal Peminjaman</label>
+                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="date">Tanggal Pengembalian</label>
-                        <input class="form-control" id="date" name="date"  type="date"/>
+                        <label for="">Tanggal Pengembalian</label>
+                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
                     </div>
                     <button class="btn btn-lg btn-primary ml-auto d-block">Tambahkan</button>                    
                 </div>
