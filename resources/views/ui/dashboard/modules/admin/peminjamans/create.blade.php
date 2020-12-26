@@ -34,13 +34,13 @@
                             <option value="">Chelsea Olivier</option>
                         </select>
                     </div>
-                    <<div class="form-group">
-                        <label for="">Tanggal Peminjaman</label>
-                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
+                    <div class="form-group">
+                        <label class="control-label" for="date">Tanggal Peminjaman</label>
+                        <input class="form-control" id="date" name="date"  type="date"/>
                     </div>
                     <div class="form-group">
-                        <label for="">Tanggal Kembali</label>
-                        <input data-input="datetimepicker" type="text" class="form-control" name="name" autocomplete="off">
+                        <label class="control-label" for="date">Tanggal Pengembalian</label>
+                        <input class="form-control" id="date" name="date"  type="date"/>
                     </div>
                     <button class="btn btn-lg btn-primary ml-auto d-block">Tambahkan</button>                    
                 </div>
