@@ -8,10 +8,13 @@
     <div class="breadcrumb-item">Edit Buku</div>
 @endsection
 @section('content-header')
-  <div class="row align-items-center">
+  <div class="row gutters-xs align-items-center">
         <div class="col-md"><h2 class="section-title">Form Edit Buku</h2></div>
         <div class="col-md-auto">
-            <a href="{{ route('dashboard.admin.books.index') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="{{ route('dashboard.admin.books.index') }}" class="btn btn-block btn-lg btn-outline-primary"><i class="fas fa-book mr-2"></i> Semua Buku</a>
         </div>
   </div>
 @endsection
@@ -31,7 +34,7 @@
                                     name="photo"
                                     type="file" 
                                     class="custom-file-input" 
-                                    id="customFile" onchange="openFile(event, '#img-budidaya')">
+                                    id="customFile" onchange="openFile(event, '#img-book')">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
                         </div>
@@ -148,9 +151,9 @@
                 <div class="card-body">
                     <div id="img-card">
                         @if ($book->photo)
-                            <img src="{{ asset('storage/'.$book->photo) }}" alt="">
+                            <img src="{{ asset('storage/'.$book->photo) }}" alt=" " id="img-book">
                         @else
-                            <img src="{{ asset('img/books/default.png') }}" alt="">
+                            <img src="{{ asset('img/books/default.png') }}" alt=" " id="img-book">
                         @endif
                     </div>
                 </div>

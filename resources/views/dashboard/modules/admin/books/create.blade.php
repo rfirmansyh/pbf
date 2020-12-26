@@ -8,10 +8,13 @@
     <div class="breadcrumb-item">Tambah Buku</div>
 @endsection
 @section('content-header')
-  <div class="row align-items-center">
+  <div class="row gutters-xs align-items-center">
         <div class="col-md"><h2 class="section-title">Form Tambah Buku</h2></div>
         <div class="col-md-auto">
-            <a href="{{ route('dashboard.admin.books.index') }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="{{ route('dashboard.admin.books.index') }}" class="btn btn-block btn-lg btn-outline-primary"><i class="fas fa-book mr-2"></i> Semua Buku</a>
         </div>
   </div>
 @endsection

@@ -76,7 +76,7 @@
                     </div>
                     <div class="card-footer border-top border-light d-flex justify-content-end">
                         <a href="{{ route('dashboard.admin.books.edit', $book) }}" class="btn btn-sm btn-warning mr-1">Ubah</a>
-                        <a href="{{ route('dashboard.admin.books.index') }}" class="btn btn-sm btn-primary">Detail</a>
+                        <a href="{{ route('dashboard.admin.books.show', $book) }}" class="btn btn-sm btn-primary">Detail</a>
                     </div>
                 </div>
             </div> 

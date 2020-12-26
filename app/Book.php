@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     public function rak() {
-        return $this->belongsTo('App\Book');
+        return $this->belongsTo('App\Rak');
     }
 }
