@@ -3,8 +3,10 @@
       <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
     </ul>
     <ul class="navbar-nav navbar-right">
-        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="{{ asset('img/users/2.jpg') }}" class="rounded-circle mr-2">
+        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex align-items-center">
+            <div class="d-inline-block mr-3" style="width: 30px; height: 30px; overflow: hidden; border-radius: 50%">
+                <img alt=" " src="{{ asset('img/users/2.jpg') }}" style="width: 100%; height: 100%; object-fit: cover">
+            </div>
             <div class="d-sm-none d-lg-inline-block">Hi, Jhon Doe</div></a>
             <div class="dropdown-menu dropdown-menu-right">
             <a href="{{ url('ui/dashboard/member/profile') }}" class="dropdown-item has-icon">
