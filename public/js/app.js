@@ -23,16 +23,18 @@ var openFile = function(event, element) {
     reader.readAsDataURL(input.files[0])
 }
 
-if ( $('.custom-file-input') !== null || $('.custom-file-input') !== undefined )
-document.querySelector('.custom-file-input').addEventListener('change',function(e){
-    var fileName = this.files[0].name;
-    var nextSibling = e.target.nextElementSibling
-    nextSibling.innerText = fileName
-})
-
 
 // Jquery Handle
 $(function() {
+
+    if ( $('.custom-file-input') !== null && $('.custom-file-input') !== undefined ) {
+        $('.custom-file-input').on('change', function(e) {
+            var fileName = this.files[0].name;
+            var nextSibling = e.target.nextElementSibling
+            nextSibling.innerText = fileName
+        })
+    }
+
     $('.input-group.input-group-password .input-group-append').on('click', function(e) {
         if($(this).prev().prop('type') === 'password') {
             $(this).prev().prop('type', 'text')
