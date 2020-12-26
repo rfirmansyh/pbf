@@ -53,10 +53,11 @@
                                         <div class="font-weight-bold"> SomePeople </div>
                                     </div>
                                     <div class="border-bottom mb-1 pb-1"> Stok Buku :
-                                        <div class="font-weight-bold">10</div>
+                                        <div class="font-weight-bold">010</div>
                                     </div>
                                     <div class="">Deskripsi Buku :
-                                        <div class= "font-weight-bold"> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</div>
+                                        <div class= "font-weight-bold">Buku dengan judul Belajar Laravel ini merupakan buku 
+                                        dasar dalam...</div>
                                     </div>
                                 </div>
                             </div>
