@@ -90,7 +90,7 @@ class PeminjamanController extends Controller
     public function edit($id)
     {
         $peminjaman = Peminjaman::find($id);
-        $books = \App\Book::where('stock', '>', 0)->get();
+        $books = \App\Book::where('stock', '>=', 0)->get();
         $members = \App\User::where('role_id', 2)->get();
         return view('dashboard.modules.admin.peminjamans.edit')->with([
             'peminjaman' => $peminjaman,
@@ -109,14 +109,13 @@ class PeminjamanController extends Controller
     public function update(Request $request, Peminjaman $peminjaman)
     {
         $validation = \Validator::make($request->all(), [
-            'book_id'           => 'required',
             'member_id'         => 'required',    
             'borrowed_at'       => 'required',    
             'returned_at'       => 'required',    
         ])->validate();
 
         // // update stock book
-        if (intval($request->book_id) !== $peminjaman->book_id) {
+        if ($request->book_id !== null && intval($request->book_id) !== $peminjaman->book_id) {
             $book = \App\Book::find($peminjaman->book_id);
             $book->stock = $book->stock + 1;
             $book->save();
@@ -124,9 +123,10 @@ class PeminjamanController extends Controller
             $book_new = \App\Book::find(intval($request->book_id));
             $book_new->stock = $book_new->stock - 1;
             $book_new->save();
+
+            $peminjaman->book_id = $request->book_id;
         }
 
-        $peminjaman->book_id = $request->book_id;
         $peminjaman->member_id = $request->member_id;
         $peminjaman->borrowed_at = \Carbon\Carbon::parse($request->borrowed_at);
         $peminjaman->returned_at = \Carbon\Carbon::parse($request->returned_at);
@@ -142,14 +142,82 @@ class PeminjamanController extends Controller
         return redirect()->route('dashboard.admin.peminjamans.edit', $peminjaman->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Peminjaman  $peminjaman
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Peminjaman $peminjaman)
+    public function returnwhere(Request $request)
     {
-        //
+        $validator = \Validator::make($request->all(), [
+            'id'        => ['required', 'array', 'min:1']
+        ]);
+
+        if ($validator->fails()) {
+            \Session::flash('alert-type', 'danger'); 
+            \Session::flash('alert-message', 'Tidak Bisa Dikembalikan, tidak ada baris yang dipilih!'); 
+
+            return redirect()->route('dashboard.admin.peminjamans.index');
+        }
+
+        $ids = $request->id;
+        $query = "id = $ids[0]";
+        if (count($ids) > 1) {
+            for ($i=1; $i < count($ids); $i++) { 
+                $query .= " or id = $ids[$i]";
+            }
+        }
+
+        $peminjamans = Peminjaman::whereRaw($query)->get();
+        foreach ($peminjamans as $i => $peminjaman) {
+            $book = \App\Book::find($peminjaman->book_id);
+            $book->stock = $book->stock + 1;
+            $book->save();
+            
+            $pengembalian = new \App\Pengembalian;
+            $pengembalian->peminjaman_returned_at = $peminjaman->returned_at;
+            $pengembalian->returned_at = now();
+            $pengembalian->compensation = getCompensation( now(), $peminjaman->returned_at );
+            $pengembalian->book_id = $peminjaman->book_id;
+            $pengembalian->member_id = $peminjaman->member_id;
+            $pengembalian->admin_id = $peminjaman->admin_id;
+            $pengembalian->peminjaman_id = $peminjaman->id;
+            $pengembalian->save();
+        }
+
+        \Session::flash('alert-type', 'success'); 
+        \Session::flash('alert-message', 'Data Peminjaman Berhasil Di Pindahkan ke Pengembalian!'); 
+        return redirect()->route('dashboard.admin.peminjamans.index');
+
+    }
+    
+    public function deletewhere(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            'id'        => ['required', 'array', 'min:1']
+        ]);
+
+        if ($validator->fails()) {
+            \Session::flash('alert-type', 'danger'); 
+            \Session::flash('alert-message', 'Tidak Bisa Hapus, tidak ada baris yang dipilih!'); 
+
+            return redirect()->route('dashboard.admin.peminjamans.index');
+        }
+        $ids = $request->id;
+        $query = "id = $ids[0]";
+        if (count($ids) > 1) {
+            for ($i=1; $i < count($ids); $i++) { 
+                $query .= " or id = $ids[$i]";
+            }
+        }
+            
+        $peminjamans = Peminjaman::whereRaw($query)->get();
+        foreach ($peminjamans as $i => $peminjaman) {
+            if (!$peminjaman->book) {
+                $book = \App\Book::find($peminjaman->book_id);
+                $book->stock = $book->stock + 1;
+                $book->save();
+            }
+        }
+        Peminjaman::whereRaw($query)->delete();
+
+        \Session::flash('alert-type', 'success'); 
+        \Session::flash('alert-message', 'Data Peminjaman Berhasil Dihapus!'); 
+        return redirect()->route('dashboard.admin.peminjamans.index');
     }
 }

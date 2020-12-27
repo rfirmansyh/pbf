@@ -18,5 +18,16 @@ use Carbon\Carbon;
             return number_format($value,2,',','.');
         }
     }
+
+    if (!function_exists('getCompensation')) {
+        function getCompensation($date_confirmed, $date_deadline) {
+            $confirmed = Carbon::parse($date_confirmed);
+            $deadline = Carbon::parse($date_deadline);
+            if ($confirmed > $deadline) {
+                return $confirmed->diffInDays($deadline) * 500;
+            }
+            // return number_format($value,2,',','.');
+        }
+    }
         
 ?>

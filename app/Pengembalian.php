@@ -12,6 +12,14 @@ class Pengembalian extends Model
         return $this->belongsTo('App\Peminjaman');
     }
 
+    public function book() {
+        return $this->belongsTo('App\Book');
+    }
+
+    public function member() {
+        return $this->belongsTo('App\User', 'member_id');
+    }
+
     public function admin() {
         return $this->belongsTo('App\User', 'admin_id');
     }

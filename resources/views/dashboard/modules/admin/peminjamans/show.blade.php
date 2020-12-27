@@ -25,7 +25,11 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
-                        <div class="form-group">
+                    <div class="form-group">
+                        <label for="">DI Peminjaman</label>
+                        <input type="text" class="form-control" value="{{ $peminjaman->id }}" disabled>
+                    </div>
+                    <div class="form-group">
                         <label for="">Buku Yang Dipinjam</label>
                         <input type="text" class="form-control" value="{{ $peminjaman->book->title }}" disabled>
                     </div>
@@ -46,6 +50,30 @@
                             value="{{ \Carbon\Carbon::parse($peminjaman->returned_at)->format('m/d/Y h:i A') }}"
                             type="text"
                             class="form-control" disabled>
+                    </div>
+                    @php
+                        $remaining = \Carbon\Carbon::parse($peminjaman->returned_at)->diffInDays(\Carbon\Carbon::now()).' Hari ';
+                    @endphp
+                    <div class="form-group">
+                        <label for="">Sisa Hari</label>
+                        @if ( \Carbon\Carbon::now()->diffInDays() < \Carbon\Carbon::parse($peminjaman->returned_at)->diffInDays() )
+                            <div class="d-block badge badge-primary">{{ $remaining }}</div>
+                        @elseif ( \Carbon\Carbon::now()->diffInDays() == \Carbon\Carbon::parse($peminjaman->returned_at)->diffInDays() )
+                            <div class="d-block badge badge-warning">Hari ini</div>
+                        @else
+                            <div class="d-block badge badge-secondary">Habis</span>
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Status Pengembalian</label>
+                        @if ( $peminjaman->pengembalian && $peminjaman->pengembalian->returned_at < $peminjaman->returned_at )
+                            <div class="d-block badge badge-success">Dikembalikan</div>
+                        @elseif ( $peminjaman->pengembalian )
+                            <div class="d-block badge badge-danger">Terlambat</div>
+                        @else
+                            <div class="d-block badge badge-secondary">Dipinjam</div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -24,9 +24,6 @@ class AjaxController extends Controller
     
     public function getPeminjamans(Request $request) 
     {
-        // if ($request->id) {
-        //     dd($request->id);
-        // }
         $peminjamans = \App\Peminjaman::get();
         return DataTables::of($peminjamans)
             ->addColumn('title', function($peminjaman) {
@@ -84,6 +81,51 @@ class AjaxController extends Controller
                 return $peminjaman->id;
             })
             ->rawColumns(['photo', 'date_remaining', 'status'])->make(true);
+    }
+
+    public function getPengembalians(Request $request)
+    {
+        $pengembalians = \App\Pengembalian::get();
+        // dd($pengembalians);
+        return DataTables::of($pengembalians)
+                ->addColumn('title', function($pengembalian) {
+                    return [
+                        'id' => $pengembalian->book->id,
+                        'title' => substr($pengembalian->book->title, 0, 12).( (strlen($pengembalian->book->title) > 12) ? '...' : ''  ),
+                        'title_full' => $pengembalian->book->title
+                    ];
+                })
+                ->addColumn('member', function($pengembalian) {
+                    return [
+                        'id' => $pengembalian->member->id,
+                        'name' => $pengembalian->member->name
+                    ];
+                })
+                ->addColumn('admin', function($pengembalian) {
+                    return [
+                        'id' => $pengembalian->admin->id,
+                        'name' => $pengembalian->admin->name
+                    ];
+                })
+                ->addColumn('peminjaman_returned_at', function($pengembalian) {
+                    return Carbon::parse($pengembalian->peminjaman_returned_at)->format('j M Y');
+                })
+                ->addColumn('returned_at', function($pengembalian) {
+                    return Carbon::parse($pengembalian->returned_at)->format('j M Y');
+                })
+                ->addColumn('status', function($pengembalian) {
+                    return [
+                        'pengembalian_peminjaman_returned_at' => $pengembalian->peminjaman_returned_at,
+                        'pengembalian_returned_at' => $pengembalian->returned_at,
+                    ];
+                })
+                ->addColumn('peminjaman_id', function($pengembalian) {
+                    if ( $pengembalian->peminjaman ) {
+                        return $pengembalian->peminjaman->id;
+                    }
+                    return null;
+                })
+                ->make(true);
     }
 
 }

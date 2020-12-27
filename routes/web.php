@@ -32,10 +32,17 @@
 // ADMIN
 Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
     Route::resource('books', 'BookController');
-    Route::resource('peminjamans', 'PeminjamanController');
+
+    Route::delete('peminjamans/deletewhere', 'PeminjamanController@deletewhere')->name('peminjamans.deletewhere');
+    Route::put('peminjamans/returnwhere', 'PeminjamanController@returnwhere')->name('peminjamans.returnwhere');
+    Route::resource('peminjamans', 'PeminjamanController')->except('destroy');
+    
+    Route::delete('pengembalians/deletewhere', 'PengembalianController@deletewhere')->name('pengembalians.deletewhere');
+    Route::resource('pengembalians', 'PengembalianController')->only('index');
 });
 Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
     Route::get('peminjamans', 'AjaxController@getPeminjamans')->name('getPeminjamans');
+    Route::get('pengembalians', 'AjaxController@getPengembalians')->name('getPengembalians');
     Route::get('users/{id?}', 'AjaxController@getUserById')->name('getUserById');
     Route::get('books/{id?}', 'AjaxController@getBookById')->name('getBookById');
 });

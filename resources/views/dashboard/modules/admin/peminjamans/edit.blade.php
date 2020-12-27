@@ -36,7 +36,7 @@
                                 title="Pilih Buku" 
                                 data-style="form-control" data-width="100%" data-live-search="true" data-live-search-placeholder="Cari Buku...">
                                     @foreach ($books as $book)
-                                        <option {{ $peminjaman->book->id === $book->id ? 'selected' : '' }} value="{{ $book->id }}">[sisa: {{ $book->stock }}] {{ $book->title }}</option>
+                                        <option {{ $peminjaman->book->id === $book->id ? 'selected' : '' }} {{ $book->stock === 0 ? 'disabled' : '' }} value="{{ $book->id }}">[sisa: {{ $book->stock }}] {{ $book->title }}</option>
                                     @endforeach
                             </select>
                             @error('book_id')
@@ -82,7 +82,7 @@
                             <label for="">Tanggal Kembali</label>
                             
                             <input
-                                value="{{ old('returned_at') ? old('returned_at') : \Carbon\Carbon::parse($peminjaman->borrowed_at)->format('m/d/Y h:i A') }}"
+                                value="{{ old('returned_at') ? old('returned_at') : \Carbon\Carbon::parse($peminjaman->returned_at)->format('m/d/Y h:i A') }}"
                                 name="returned_at"
                                 type="text"
                                 class="form-control @error('returned_at') is-invalid @enderror"

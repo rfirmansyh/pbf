@@ -4,16 +4,14 @@
 
 @section('header', 'Peminjaman Buku')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Peminjaman</a></div>
+    <div class="breadcrumb-item active"><a href="#">Pengembalian</a></div>
     {{-- <div class="breadcrumb-item">Activities</div> --}}
 @endsection
 @section('content-header')
   <div class="row align-items-center">
-		<div class="col-md"><h2 class="section-title">Daftar Peminjaman</h2></div>
-		<div class="col-md-auto">
-        	<div class="col-md-auto">
-                <a href="{{ route('dashboard.admin.peminjamans.create') }}" class="btn btn-block btn-lg btn-primary"><i class="fas fa-plus mr-2"></i> Tambah Data Peminjaman</a>
-            </div>
+        <div class="col-md"><h2 class="section-title">Daftar Pengembalian</h2></div>
+        <div class="col-md-auto">
+            <a href="{{ route('dashboard.admin.peminjamans.index') }}" class="btn btn-block btn-lg btn-outline-primary"><i class="fas fa-newspaper mr-2"></i> Semua Peminjaman</a>
         </div>
   </div>
 @endsection
@@ -25,22 +23,12 @@
             <div class="row align-items-center gutters-xs">
                 <div class="col-lg"><h5 class="text-dark mb-0">Opsi Data</h5></div>
                 <div class="col-md-auto">
-                    <form action="{{ route('dashboard.admin.peminjamans.deletewhere') }}" id="form-delete" method="POST">
+                    <form action="{{ route('dashboard.admin.pengembalians.deletewhere') }}" id="form-delete" method="POST">
                         @csrf @method('DELETE')
                         {{-- just a wrapper for item to be deleted --}}
                         <div id="delete-id-wrapper"></div> 
                         <button type="submit" id="btn-delete" class="btn btn-lg btn-danger" disabled>
                             <i class="fas fa-trash"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="col-md-auto">
-                    <form action="{{ route('dashboard.admin.peminjamans.returnwhere') }}" id="form-return" method="POST">
-                        @csrf @method('PUT')
-                        {{-- just a wrapper for item to be deleted --}}
-                        <div id="return-id-wrapper"></div> 
-                        <button type="submit" id="btn-return" class="btn btn-lg btn-success" disabled>
-                            <i class="fas fa-check"></i>
                         </button>
                     </form>
                 </div>
@@ -64,11 +52,10 @@
                             <th>Judul Buku</th>
                             <th>Nama Peminjam</th>
                             <th>Nama Petugas</th>
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Kembali</th>
-                            <th>Sisa Hari</th>
+                            <th>Tanggal Pengembalian</th>
+                            <th>Tanggal Dikembalikan</th>
                             <th>Status</th>
-                            <th>Aksi</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -152,10 +139,8 @@
     <script src="{{ asset('vendors/bs-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
     <script>
 
-        
-
         // DATATABLE
-        const ajax_url = '{{ route('ajax.getPeminjamans') }}';
+        const ajax_url = '{{ route('ajax.getPengembalians') }}';
         $(document).ready(function() {
             var table = $('#datatable').DataTable({
                 'dom': `<'row no-gutters'<'col-md'l><'col-md-auto'f><'col-md-auto'B>>
@@ -195,33 +180,10 @@
                         'checkboxes': {
                             'selectRow': true,
                             'selectCallback': function(nodes, selected) {
-                                // let selected_rows = [];
-                                // selected_rows = [...selected_rows, table.rows( { selected: true } ).data()];
-                                let selected_rows = $.map(table.rows( { selected: true } ).data(), function(item) {
-                                    console.log(item);
-                                    return {
-                                        'id': item.id,
-                                        'length': item.status === 0 ? item.status : 1
-                                    };
-                                });
-                                
-                                hasrow_returned_book = false;
-                                selected_rows.map((v) => {
-                                    if ( v.length === 1 ) {
-                                        hasrow_returned_book = true;
-                                    }
-                                });
-                                // console.log(selected_rows, hasrow_returned_book);
                                 if (table.column(0).checkboxes.selected().length > 0) {
                                     $('#btn-delete').removeAttr('disabled');
-                                    if ( hasrow_returned_book === false && selected_rows.length > 0 ) {
-                                        $('#btn-return').removeAttr('disabled');
-                                    } else {
-                                        $('#btn-return').attr('disabled', true);
-                                    }
                                 } else {
                                     $('#btn-delete').attr('disabled', true);
-                                    $('#btn-return').attr('disabled', true);
                                 }
                             }
                         }
@@ -258,31 +220,26 @@
                             return `<a href="{{ url('dashboard/admin/users') }}/${data.id}"> ${data.name} </a>`;
                         }
                     },
-                    {data: 'borrowed_at', name: 'borrowed_at'},
+                    {data: 'peminjaman_returned_at', name: 'peminjaman_returned_at'},
                     {data: 'returned_at', name: 'returned_at'},
-                    {data: 'date_remaining', name: 'date_remaining'},
                     {
                         data: 'status', name: 'status',
                         render: function(data, type, row) {
-                            if ( data !== 0 ){
-                                if (data.pengembalian_returned_at <= data.peminjaman_returned_at) {
-                                    return '<span class="badge badge-success">Dikembalikan</span>';
-                                } else {
-                                    return '<span class="badge badge-danger">terlambat</span>';
-                                }
+                            if (data.pengembalian_returned_at <= data.pengembalian_peminjaman_returned_at) {
+                                return '<span class="badge badge-success">Dikembalikan</span>';
+                            } else {
+                                return '<span class="badge badge-danger">terlambat</span>';
                             }
-                            return '<span class="badge badge-secondary">Dipinjam</span>';
                         }
                     },
                     {
-                        data: 'action', name: 'action',
+                        data: 'peminjaman_id', name: 'peminjaman_id',
                         render: function(data, type, row) {
-                            return `
-                                <div class="d-flex align-items-center"> 
-                                    <a href="{{ url('dashboard/admin/peminjamans/') }}/${data}/edit" class="btn btn-sm btn-warning mr-1"><i class="fas fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/admin/peminjamans/') }}/${data}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
-                                </div>
-                            `;
+                            if (data !== null) {
+                                return `<a class="d-flex align-items-center" href="{{ url('dashboard/admin/peminjamans/') }}/${data}">ID: ${data} <i class="fas fa-share"></i></a>`;
+                            } else {
+                                return '<i class="fas fa-minus"></i>';
+                            }
                         }
                     },
                 ],
@@ -318,41 +275,6 @@
                         $.each(rows_selected, function(index, rowId){
                             // Create a hidden element
                             $(form).find('#delete-id-wrapper').append(
-                                $('<input>')
-                                    .attr('type', 'hidden')
-                                    .attr('name', 'id[]')
-                                    .val(rowId)
-                            );
-                        });
-
-                        form.submit();         
-                    }
-                })
-
-            });
-
-            // RETURN MULTIPLE
-            $('#form-return').on('submit', function(e){
-                e.preventDefault();
-                var form = this;
-                var rows_selected = table.column(0).checkboxes.selected();
-
-                Swal.fire({
-                    title: 'Masukan ke Pengembalian ?',
-                    text: "Dengan Memindahkan data ini ke Pengembalian, anda tidak dapat Memasukan kembali ke Peminjaman",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Iya, Masukan Ke Pengembalian!',
-                    cancelButtonText: 'Batal'
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                        $(form).find('#returnd-id-wrapper').html('');
-                        // Iterate over all selected checkboxes
-                        $.each(rows_selected, function(index, rowId){
-                            // Create a hidden element
-                            $(form).find('#return-id-wrapper').append(
                                 $('<input>')
                                     .attr('type', 'hidden')
                                     .attr('name', 'id[]')
