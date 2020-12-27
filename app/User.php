@@ -37,32 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role(){
+    public function role() {
         return $this->belongsTo('App\Role');
     }
-    public function budidayas(){
-        return $this->hasMany('App\Budidaya', 'owned_by_uid');
-    }
-    public function productions(){
-        return $this->hasOne('App\Production', 'updated_by_uid');
-    }
-    public function production_makers(){
-        return $this->hasOne('App\Production', 'maked_by_uid');
-    }
-    // if pekerja
-    public function work_on() {
-        return $this->belongsTo('App\User', 'manager_id');
-    }
-    public function maintance_on(){
-        return $this->hasOne('App\Budidaya', 'maintenance_by_uid');
+
+    public function member_peminjamans() {
+        return $this->hasMany('App\Peminjaman', 'member_id');
     }
 
-    public function workers() {
-        return $this->hasMany('App\User', 'manager_id');
-    }
-
-    public function posts() {
-        return $this->hasMany('App\Post', 'created_by_uid');
+    public function admin_peminjamans() {
+        return $this->hasMany('App\Peminjaman', 'admin_id');
     }
 
 }

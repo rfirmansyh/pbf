@@ -63,6 +63,7 @@
         </div>
     </div>
 
+
     {{-- Datatable --}}
     <div class="card">
         <div class="card-body">
@@ -70,46 +71,69 @@
                 <table id="datatable" class="table table-datatable" width="100%">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th width="50px">Foto Buku</th>
-                            <th>Buku</th>
-                            <th>Nama Peminjaman</th>
+                            <th width="30px">Foto Buku</th>
+                            <th>Judul Buku</th>
+                            <th>Nama Peminjam</th>
+                            <th>Nama Petugas</th>
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Kembali</th>
+                            <th>Sisa Hari</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                         @for ($i = 0; $i < 3; $i++)
+                        @for ($i = 0; $i < 3; $i++)
                         <tr>
-                            <td>{{ $i+1 }}</td>
                             <td>
                                 <div class="img-table">
-                                <img src="{{ asset('img/laravel.jpg') }}" alt="">
+                                    <img src="{{ asset('img/laravel.jpg') }}" alt="">
+                                </div>
+                            </td>
+                            <td><a href="">Belajar Laravel</a></td>
+                            <td><a href="{{ url('ui/dashboard/admin/users/show/') }}">Chelsea Olivier<a></td>
+                            <td><a href="{{ url('ui/dashboard/admin/users/show/') }}">Mamat sueb<a></td>
+                            <td>20 Oct 2020</td>
+                            <td>20 Oct 2020</td>
+                            <td>2 Hari</td>
+                            <td><span class="badge badge-danger">Terlambat</span></td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger mr-1"><i class="fas fa-trash"></i></a>
+                                    <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning mr-1"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endfor
+                        {{-- @for ($i = 0; $i < 3; $i++)
+                        <tr>
+                            <td class="align-middle">
+                                <div class="img-table">
+                                    <img src="{{ asset('img/laravel.jpg') }}" alt="">
                                 </div>
                             </td>
                             <td class="align-middle">
                                 Belajar Laravel
                             </td>
                             <td class="align-middle"><a href="{{ url('ui/dashboard/admin/users/show/') }}">Chelsea Olivier<a></td>
+                            <td class="align-middle"><a href="{{ url('ui/dashboard/admin/users/show/') }}">Mamat sueb<a></td>
                             <td class="align-middle">
                                 20 Oct 2020
                             </td>
                             <td class="align-middle">
                                 20 Sept 2020
                             </td>
+                            <td class="align-middle">2 Hari lagi</td>
                             <td class="align-middle"><span class="badge badge-secondary">Dipinjam</span></td>
                             <td class="align-middle">
                                 <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
-                                <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                             </td>
                         <tr>
-                        @endfor
-                        <tr>
-                            <td>{{ $i+1 }}</td>
+                        @endfor --}}
+                        {{-- <tr>
                             <td>
                                 <div class="img-table">
                                 <img src="{{ asset('img/laravel.jpg') }}" alt="">
@@ -119,36 +143,38 @@
                                 Belajar Laravel
                             </td>
                             <td class="align-middle"><a href="{{ url('ui/dashboard/admin/users/show/') }}">Chelsea Olivier<a></td>
+                            <td class="align-middle"><a href="{{ url('ui/dashboard/admin/users/show/') }}">Mamat sueb<a></td>
                             <td class="align-middle">
                                 20 Oct 2020
                             </td>
                             <td class="align-middle">
                                 20 Sept 2020
                             </td>
+                            <td class="align-middle">2 Hari lagi</td>
                             <td class="align-middle"><span class="badge badge-danger">Terlambat</span></td>
                             <td class="align-middle">
                                 <a href="{{ url('ui/unitkerja/show') }}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="{{ url('ui/dashboard/admin/users/edit') }}" class="btn btn-sm btn-success"><i class="fas fa-check"></i></a>
-                                <a href="{{ url('ui/dashboard/admin/users/show') }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('style')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
     <link rel="stylesheet" href="{{ asset('vendors/datatable/datatable.min.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.css"/>
+    <link rel="stylesheet" href="{{ asset('vendors/bs-datetimepicker/bootstrap-datetimepicker.min.css') }}">
     <style>
         .img-table {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             overflow: hidden;
             border-radius: 5px;
         }
@@ -186,6 +212,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/datatables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
     <script src="{{ asset('vendors/datatable/datatable-bs.min.js') }}"></script>
     <script>
         $(document).ready(function() {

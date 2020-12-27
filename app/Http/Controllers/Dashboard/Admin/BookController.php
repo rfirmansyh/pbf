@@ -71,9 +71,8 @@ class BookController extends Controller
 
         $book->save();
         \Session::flash('alert-type', 'success'); 
-        \Session::flash('alert-message', 'Data Mitra Berhasil Ditambahkan!'); 
+        \Session::flash('alert-message', 'Data Buku Berhasil Ditambahkan!'); 
         
-        $raks = \App\Rak::all();
         return redirect()->route('dashboard.admin.books.create');
     }
 
@@ -142,7 +141,7 @@ class BookController extends Controller
 
         $book->save();
         \Session::flash('alert-type', 'success'); 
-        \Session::flash('alert-message', 'Data Mitra Berhasil Ditambahkan!'); 
+        \Session::flash('alert-message', 'Data Buku Berhasil Ditambahkan!'); 
         
         $raks = \App\Rak::all();
         return redirect()->route('dashboard.admin.books.edit', $book);

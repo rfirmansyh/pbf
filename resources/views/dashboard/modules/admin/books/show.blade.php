@@ -1,4 +1,4 @@
-@extends('ui.dashboard._layouts.app-dashboard')
+@extends('dashboard._layouts.app-dashboard')
 
 @section('title', 'Detail Buku')
 
@@ -11,7 +11,7 @@
   <div class="row gutters-xs align-items-center">
         <div class="col-md"><h2 class="section-title">Baca Detail </h2></div>
         <div class="col-md-auto">
-            <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
+            <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Kembali</a>
         </div>
         <div class="col-md-auto">
             <a href="{{ route('dashboard.admin.books.index') }}" class="btn btn-block btn-lg btn-outline-primary"><i class="fas fa-book mr-2"></i> Semua Buku</a>
@@ -105,6 +105,85 @@
             }
             reader.readAsDataURL(input.files[0])
 		}
-		
+        
+        
+        let ajax_url = '{{ route('ajax.getPeminjamans') }}';
+        $(document).ready(function() {
+            var table = $('#datatable').DataTable({
+                'dom': `<'row no-gutters'<'col-md'l><'col-md-auto'f><'col-md-auto'B>>
+                        <'row'<'col-12't>>
+                        <'row no-gutters justify-content-center'<'col-md'i><'col-md-auto'p>>`,
+                buttons: [
+                    {
+                        extend: 'colvis',
+                        text: '<i class="fas fa-table mr-2"></i>Pilih Kolom',
+                        className: 'btn-primary',
+                        prefixButtons: [ 
+                            {
+                                extend: 'colvisRestore',
+                                text: 'Tampilkan Semua Kolom'
+                            }
+                        ]
+                    },
+                    {
+                        extend: 'excel',
+                        text: '<i class="fas fa-file-excel mr-2"></i>Export Excel',
+                        className: 'btn-success',
+                        title: 'Test Data export',
+                        exportOptions: {
+                            columns: ":visible"
+                        }
+                    }, 
+                ],
+                "pagingType": "numbers",
+                "language": {
+                    "lengthMenu": "Tampilkan _MENU_",
+                    "zeroRecords": "Tidak Ada Data",
+                    "info": "Menampilkan _PAGE_ dari _PAGES_ page",
+                    "infoEmpty": "Tidak Ada Data",
+                    "infoFiltered": "(filtered from _MAX_ total records)",
+                    "search": "Cari Data Mitra:"
+                },
+                ajax: ajax_url,
+                preDrawCallback: () => {
+                    $('#datatable').loader(true);
+                },
+                columns: [
+                    {data: 'photo', name: 'photo'},
+                    {
+                        data: 'title', name: 'title',
+                        render: function(data, type, row) {
+                            return `
+                            <a href="{{ url('dashboard/admin/books') }}/${data.id}" data-toggle="tooltip" data-placement="top" title="${data.title_full}">
+                                ${data.title}
+                            </a>`;
+                        }
+                    },
+                    {
+                        data: 'member', name: 'member',
+                        render: function(data, type, row) {
+                            return `<a href="{{ url('dashboard/admin/users') }}/${data.id}"> ${data.name} </a>`;
+                        }
+                    },
+                    {
+                        data: 'admin', name: 'admin',
+                        render: function(data, type, row) {
+                            return `<a href="{{ url('dashboard/admin/users') }}/${data.id}"> ${data.name} </a>`;
+                        }
+                    },
+                    {data: 'borrowed_at', name: 'borrowed_at'},
+                    {data: 'returned_at', name: 'returned_at'},
+                    {data: 'date_remaining', name: 'date_remaining'},
+                    {data: 'status', name: 'status'},
+                    {data: 'action', name: 'action'}
+                ],
+                drawCallback: () => {
+                    $('#datatable').loader(false);
+                },
+                select: true
+            });
+            table.buttons().container().appendTo('#col-export-table');
+            
+        } );
     </script>
 @endsection

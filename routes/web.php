@@ -32,8 +32,13 @@
 // ADMIN
 Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
     Route::resource('books', 'BookController');
+    Route::resource('peminjamans', 'PeminjamanController');
 });
-
+Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
+    Route::get('peminjamans', 'AjaxController@getPeminjamans')->name('getPeminjamans');
+    Route::get('users/{id?}', 'AjaxController@getUserById')->name('getUserById');
+    Route::get('books/{id?}', 'AjaxController@getBookById')->name('getBookById');
+});
 // MEMBER
 
 ///============== THIS IS END OF BACKEND ROUTES ==============\\\

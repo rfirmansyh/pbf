@@ -46,14 +46,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-xl-4 col-xl-auto">
-            <div class="row">
-                <div class="col-md-6 col-lg-12">
+        <div class="col-lg-6 col-xl-auto">
+            <div class="row ">
+                <div class="col-sm-6 col-lg-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Foto Member</h6>
+                            <div class="img-card">
+                                <img src="" class="img-fluid" id="img-user">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-auto">
                     <div class="card">
                         <div class="card-body">
                             <h6>Foto Buku</h6>
-                            <div id="img-card">
-                                <img src="" class="img-fluid" id="img-user">
+                            <div class="img-card">
+                                <img src="" class="img-fluid" id="img-book">
                             </div>
                         </div>
                     </div>
@@ -69,9 +79,9 @@
 @section('style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
     <style>
-        #img-card {
-            width: 100%;
-            height: 220px;
+        .img-card {
+            width: 180px;
+            height: 200px;
             overflow: hidden;
             border-radius: 5px;
             display: flex; align-items: center; justify-content: center;
@@ -79,18 +89,30 @@
             border-radius: 5px;
             background-color: gainsboro;
         }
-        #img-card::before {
+        .img-card::before {
             content: 'No Image Upload';
             display: inline-block;
             position: absolute;
         }
-        #img-card img {
+        .img-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border: none;
             position: relative;
         }
+        @media screen and (max-width: 992.98px) {
+            .img-card {
+                width: 100%;
+				height: 240px;
+            }
+        }
+        /* @media screen and (max-width: 575.98px) {
+            .img-card {
+                width: 100%;
+				height: 240px;
+            }
+        } */
     </style>
 @endsection
 

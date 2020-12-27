@@ -27,6 +27,7 @@ var openFile = function(event, element) {
 // Jquery Handle
 $(function() {
 
+
     if ( $('.custom-file-input') !== null && $('.custom-file-input') !== undefined ) {
         $('.custom-file-input').on('change', function(e) {
             var fileName = this.files[0].name;
@@ -44,8 +45,13 @@ $(function() {
         e.preventDefault()
     });
 
+    
+
     if ( $('[data-input="datetimepicker"]') !== null || $('[data-input="datetimepicker"]') !== undefined ) {
         $('[data-input="datetimepicker"]').datetimepicker({
+            icons: {
+                time: 'fas fa-clock'
+            },
             timeZone:'Asia/Jakarta',
             widgetPositioning: {
                 horizontal: 'auto',
