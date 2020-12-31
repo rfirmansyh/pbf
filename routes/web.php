@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
 
     Route::get('profile/', 'AdminController@indexProfile')->name('profile.index');
     Route::get('profile/edit', 'AdminController@editProfile')->name('profile.edit');
+    Route::put('profile/{user}/update', 'AdminController@updateProfile')->name('profile.update');
 
     Route::resource('books', 'BookController');
 

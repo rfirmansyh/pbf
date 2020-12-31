@@ -56,12 +56,12 @@
                     @endphp
                     <div class="form-group">
                         <label for="">Sisa Hari</label>
-                        @if ( \Carbon\Carbon::now()->diffInDays() < \Carbon\Carbon::parse($peminjaman->returned_at)->diffInDays() )
-                            <div class="d-block badge badge-primary">{{ $remaining }}</div>
-                        @elseif ( \Carbon\Carbon::now()->diffInDays() == \Carbon\Carbon::parse($peminjaman->returned_at)->diffInDays() )
+                        @if ( \Carbon\Carbon::now()->greaterThan(\Carbon\Carbon::parse($peminjaman->returned_at)) )
+                            <div class="d-block badge badge-secondary">Terlewat {{ $remaining }} Hari</div>
+                        @elseif ( \Carbon\Carbon::now()->equalTo(\Carbon\Carbon::parse($peminjaman->returned_at)) )
                             <div class="d-block badge badge-warning">Hari ini</div>
                         @else
-                            <div class="d-block badge badge-secondary">Habis</span>
+                            <div class="d-block badge badge-primary">{{ $remaining }} Hari</div>
                         @endif
                     </div>
 

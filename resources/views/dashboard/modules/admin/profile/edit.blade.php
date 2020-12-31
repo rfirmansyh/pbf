@@ -13,6 +13,9 @@
         <div class="col-md-auto">
             <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
+        <div class="col-md-auto">
+            <a href="{{ route('dashboard.admin.index') }}" class="btn btn-block btn-lg btn-outline-primary"><i class="fas fa-compass mr-2"></i> Dashboard</a>
+        </div>
   </div>
 @endsection
 
@@ -42,7 +45,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form action="{{ route('dashboard.admin.users.update', $user) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('dashboard.admin.profile.update', $user) }}" method="POST" enctype="multipart/form-data">
                 @csrf @method('PUT')
                 <div class="card">
                     <div class="card-body">

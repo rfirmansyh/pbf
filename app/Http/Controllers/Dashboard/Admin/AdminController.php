@@ -11,7 +11,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        return ('dashboard.modules.admin.index');
+        return view('dashboard.modules.admin.index');
     }
 
     public function indexProfile()
@@ -28,12 +28,11 @@ class AdminController extends Controller
         ]);
     }
 
-    public function updateProfile()
+    public function updateProfile(Request $request, User $user)
     {
         $validation = \Validator::make($request->all(), [
             'name'                  => 'required|min:5|max:191',
             'phone'                 => 'required|digits_between:10,12',
-            'status'                => 'required',
             'address'               => 'required',
         ])->validate();
 
@@ -48,13 +47,11 @@ class AdminController extends Controller
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->address = $request->address;
-        $user->status = $request->status;
-        $user->role_id = $request->role_id;
 
         $user->save();
         \Session::flash('alert-type', 'success'); 
         \Session::flash('alert-message', 'Data Anggota Baru Berhasil Diubah!'); 
         
-        return redirect()->route('dashboard.admin.users.edit', $user);
+        return redirect()->route('dashboard.admin.profile.edit');
     }
 }

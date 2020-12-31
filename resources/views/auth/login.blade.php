@@ -22,13 +22,15 @@
                 </div>
                 <div class="form-group mb-2">
                     <label for="password" class="text-md-right">Password</label>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        value=""
-                        id="password" 
-                        class="form-control @error('password') is-invalid @enderror" 
-                        required autocomplete="current-password" autofocus>
+                    <div class="input-group input-group-password">
+                        <input 
+                            type="password" 
+                            name="password"
+                            class="form-control @error('password') is-invalid @enderror">
+                        <div class="input-group-append">
+                            <span class="input-group-text text-secondary csr-pointer" id="basic-addon2"><i class="fa fa-eye"></i></span>
+                        </div>
+                    </div>
                 </div>
 
                 @error('email')

@@ -96,13 +96,22 @@ class AjaxController extends Controller
                 return Carbon::parse($peminjaman->returned_at)->format('j M Y');
             })
             ->addColumn('date_remaining', function($peminjaman) {
+                // $remaining = Carbon::parse($peminjaman->returned_at)->diffInDays(Carbon::now()).' Hari ';
+                // if ( Carbon::now()->diffInDays() < Carbon::parse($peminjaman->returned_at)->diffInDays() ) {
+                //     return '<span class="badge badge-primary">'.$remaining.'</span>';
+                // } elseif ( Carbon::now()->diffInDays() == Carbon::parse($peminjaman->returned_at)->diffInDays() ) {
+                //     return '<span class="badge badge-warning">Hari Ini</span>';    
+                // }
+                // return '<span class="badge badge-secondary">Habis</span>';
                 $remaining = Carbon::parse($peminjaman->returned_at)->diffInDays(Carbon::now()).' Hari ';
-                if ( Carbon::now()->diffInDays() < Carbon::parse($peminjaman->returned_at)->diffInDays() ) {
-                    return '<span class="badge badge-primary">'.$remaining.'</span>';
-                } elseif ( Carbon::now()->diffInDays() == Carbon::parse($peminjaman->returned_at)->diffInDays() ) {
+                if ( Carbon::now()->greaterThan(Carbon::parse($peminjaman->returned_at)) ) {
+                    return '<span class="badge badge-secondary">Habis</span>';
+                } elseif ( Carbon::now()->equalTo(Carbon::parse($peminjaman->returned_at)) ) {
                     return '<span class="badge badge-warning">Hari Ini</span>';    
+                } else {
+                    return '<span class="badge badge-primary">'.$remaining.'</span>';
                 }
-                return '<span class="badge badge-secondary">Habis</span>';
+                
             })
             ->addColumn('status', function($peminjaman) {
                 if ( $peminjaman->pengembalian ) {
@@ -162,13 +171,20 @@ class AjaxController extends Controller
                         'pengembalian_returned_at' => $pengembalian->returned_at,
                     ];
                 })
+                ->addColumn('denda', function($pengembalian) {
+                    if ( $pengembalian->compensation > 0 ) {
+                        return '<span class="text-danger font-weight-bold"> Rp. '.$pengembalian->compensation.'</span>';
+                    }  else {
+                        return '<span class="text-secondary font-weight-bold">-</span>';
+                    }
+                })
                 ->addColumn('peminjaman_id', function($pengembalian) {
                     if ( $pengembalian->peminjaman ) {
                         return $pengembalian->peminjaman->id;
                     }
                     return null;
                 })
-                ->make(true);
+                ->rawColumns(['denda'])->make(true);
     }
 
 

@@ -55,6 +55,7 @@
                             <th>Tanggal Pengembalian</th>
                             <th>Tanggal Dikembalikan</th>
                             <th>Status</th>
+                            <th>Denda</th>
                             <th>Detail</th>
                         </tr>
                     </thead>
@@ -232,6 +233,7 @@
                             }
                         }
                     },
+                    { data: 'denda', name: 'denda' },
                     {
                         data: 'peminjaman_id', name: 'peminjaman_id',
                         render: function(data, type, row) {
