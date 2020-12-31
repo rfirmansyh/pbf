@@ -84,6 +84,8 @@ Route::group(['prefix' => 'ui'], function () {
     Route::view('dashboard/admin/users/create', 'ui/dashboard/modules/admin/users/create');
     Route::view('dashboard/admin/users/edit', 'ui/dashboard/modules/admin/users/edit');
     Route::view('dashboard/admin/users/show', 'ui/dashboard/modules/admin/users/show');
+    //Dashboards
+    Route::view('dashboard/admin', 'ui/dashboard/modules/admin/index');
 
 
 
