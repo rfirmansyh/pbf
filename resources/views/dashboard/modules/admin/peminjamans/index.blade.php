@@ -40,7 +40,7 @@
                         {{-- just a wrapper for item to be deleted --}}
                         <div id="return-id-wrapper"></div> 
                         <button type="submit" id="btn-return" class="btn btn-lg btn-success" disabled>
-                            <i class="fas fa-check"></i>
+                            <i class="fas fa-check mr-3"></i> Tandai Dikembalikan
                         </button>
                     </form>
                 </div>
@@ -151,8 +151,6 @@
     <script src="{{ asset('vendors/datatable/datatable-bs.min.js') }}"></script>
     <script src="{{ asset('vendors/bs-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
     <script>
-
-        
 
         // DATATABLE
         const ajax_url = '{{ route('ajax.getPeminjamans') }}';

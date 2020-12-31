@@ -39,8 +39,14 @@ Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', '
     
     Route::delete('pengembalians/deletewhere', 'PengembalianController@deletewhere')->name('pengembalians.deletewhere');
     Route::resource('pengembalians', 'PengembalianController')->only('index');
+
+    Route::put('users/{user}/changepassword', 'UserController@changepassword')->name('users.changepassword');
+    Route::resource('users', 'UserController');
+
+    Route::resource('raks', 'RakController')->except('destroy');
 });
 Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
+    Route::get('users', 'AjaxController@getUsers')->name('getUsers');
     Route::get('peminjamans', 'AjaxController@getPeminjamans')->name('getPeminjamans');
     Route::get('pengembalians', 'AjaxController@getPengembalians')->name('getPengembalians');
     Route::get('users/{id?}', 'AjaxController@getUserById')->name('getUserById');

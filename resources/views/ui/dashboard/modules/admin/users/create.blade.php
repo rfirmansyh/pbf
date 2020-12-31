@@ -4,7 +4,7 @@
 
 @section('header', 'Tambah Member Baru')
 @section('breadcrumb')
-    <div class="breadcrumb-item active"><a href="#">Mitra</a></div>
+    <div class="breadcrumb-item active"><a href="#">Member</a></div>
     <div class="breadcrumb-item">Tambah Member Baru</div>
 @endsection
 @section('content-header')
@@ -122,5 +122,4 @@
 @endsection
 
 @section('script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
 @endsection

@@ -21,6 +21,50 @@ class AjaxController extends Controller
         $book = \App\Book::find($id);
         return api_response(1, 'Get Book By Id success', $book);
     }
+
+    public function getUsers(Request $request)
+    {
+        $users = \App\User::all();
+        return DataTables::of($users)
+            ->addColumn('id', function($user) {
+                return $user->id;
+            })
+            ->addColumn('photo', function($user) {
+                if ($user->photo) {
+                    return '<div class="img-table">
+                                <img src="'.asset("storage/$user->photo").'" alt="">
+                            </div>';
+                } else {
+                    return '<div class="img-table">
+                                <img src="'.asset("img/users/default.png").'" alt="">
+                            </div>';
+                }
+            })
+            ->addColumn('name', function($user) {
+                return $user->name;
+            })
+            ->addColumn('email', function($user) {
+                return $user->email;
+            })
+            ->addColumn('phone', function($user) {
+                return $user->phone;
+            })
+            ->addColumn('role', function($user) {
+                return $user->role->name;
+            })
+            ->addColumn('status', function($user) {
+                if ($user->status === '1') {
+                    return '<span class="badge d-block badge-success">Aktif</span>';
+                } else {
+                    return '<span class="badge d-block badge-secondary">Nonaktif</span>';
+                }
+            })
+            ->addColumn('action', function($user) {
+                return '<a href="'.route('dashboard.admin.users.edit', $user).'" class="btn btn-sm btn-warning mr-1"><i class="fas fa-pen"></i></a>
+                        <a href="'.route('dashboard.admin.users.show', $user).'" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>';
+            })
+            ->rawColumns(['photo', 'status', 'action'])->make(true);
+    }
     
     public function getPeminjamans(Request $request) 
     {
@@ -86,7 +130,6 @@ class AjaxController extends Controller
     public function getPengembalians(Request $request)
     {
         $pengembalians = \App\Pengembalian::get();
-        // dd($pengembalians);
         return DataTables::of($pengembalians)
                 ->addColumn('title', function($pengembalian) {
                     return [
@@ -127,5 +170,6 @@ class AjaxController extends Controller
                 })
                 ->make(true);
     }
+
 
 }

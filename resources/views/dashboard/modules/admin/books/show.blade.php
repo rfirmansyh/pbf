@@ -11,6 +11,9 @@
   <div class="row gutters-xs align-items-center">
         <div class="col-md"><h2 class="section-title">Baca Detail </h2></div>
         <div class="col-md-auto">
+            <a href="{{ route('dashboard.admin.books.edit', $book) }}" class="btn btn-block btn-lg btn-outline-warning"><i class="fas fa-pen mr-2"></i> Ubah</a>
+        </div>
+        <div class="col-md-auto">
             <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Kembali</a>
         </div>
         <div class="col-md-auto">

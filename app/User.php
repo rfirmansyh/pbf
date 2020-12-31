@@ -49,4 +49,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Peminjaman', 'admin_id');
     }
 
+    public function member_pengembalians() {
+        return $this->hasMany('App\Pengembalian', 'member_id');
+    }
+
+    public function admin_pengembalians() {
+        return $this->hasMany('App\Pengembalian', 'admin_id');
+    }
+
 }

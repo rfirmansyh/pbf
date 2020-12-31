@@ -60,7 +60,7 @@
                             </div>
                             <div class="col-lg">
                                 <div class="border-bottom mb-1 pb-1"> Kode Buku: 
-                                <div class="font-weight-bold"> {{ $book->code }} </div>
+                                    <div class="font-weight-bold"> {{ $book->code }} </div>
                                 </div>
                                 <div class="border-bottom mb-1 pb-1">Penulis :
                                     <div class="font-weight-bold"> {{ $book->writer }} </div>
