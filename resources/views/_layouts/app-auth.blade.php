@@ -3,14 +3,14 @@
 @section('content-extends')
 <section class="section">
     <div class="container mt-3 pt-4">
-        <h4 class="text-center my-3">ABJA MITRA</h4>
+        <h4 class="text-center my-3">PERPUS ID</h4>
         <div class="row justify-content-center">
             <div class="col-12 col-sm-8 col-lg-5">
 
             @yield('content')
 
             <div class="simple-footer">
-                <a href="{{ route('frontpage.home') }}" class="d-block">Kembali Ke Halaman Utama</a>
+                <a href="" class="d-block">Kembali Ke Halaman Utama</a>
                 Copyright &copy; {{ env('APP_NAME') }} {{ date('Y') }}
             </div>
             </div>

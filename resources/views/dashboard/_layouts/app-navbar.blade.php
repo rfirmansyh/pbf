@@ -5,18 +5,26 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex align-items-center">
             <div class="d-inline-block mr-3" style="width: 30px; height: 30px; overflow: hidden; border-radius: 50%">
-                <img alt=" " src="{{ asset('img/users/2.jpg') }}" style="width: 100%; height: 100%; object-fit: cover">
+                @if (\Auth::user()->photo)
+                    <img src="{{ asset('storage/'.\Auth::user()->photo) }}" alt=" " style="width: 100%; height: 100%; object-fit: cover">
+                @else
+                    <img src="{{ asset('img/users/default.png') }}" alt=" " style="width: 100%; height: 100%; object-fit: cover">
+                @endif
             </div>
-            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, {{ \Auth::user()->name }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-title">Logged in 5 min ago</div>
-            <a href="features-profile.html" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
+            <div class="dropdown-title">Opsi</div>
+            
+            <a href="{{ route('dashboard.'.\Auth::user()->role->slug.'.profile.index') }}" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Lihat Profile
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="dropdown-item has-icon text-danger d-flex align-items-center">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </form>
             </div>
         </li>
     </ul>

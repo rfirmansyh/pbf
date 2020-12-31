@@ -28,6 +28,30 @@ class UsersSeeder extends Seeder
                 'role_id' => rand(1,2)
             ];
         }
+        $users[] = [
+            'name' => 'Rahmad Firmansyah',
+            'photo' => null,
+            'email' => 'fsyah7052@gmail.com',
+            'password' =>  bcrypt('@Firman123'),
+            'phone' => '085748572354',
+            'address' => 'Dusun Kantong Desa Kemiri',
+            'status' => 1,
+            'created_at' => now(),
+            'updated_at' => null,
+            'role_id' => 1
+        ];
+        $users[] = [
+            'name' => 'Testing',
+            'photo' => null,
+            'email' => 'admintest@gmail.com',
+            'password' =>  bcrypt('123'),
+            'phone' => '085748572354',
+            'address' => 'Unknown',
+            'status' => 1,
+            'created_at' => now(),
+            'updated_at' => null,
+            'role_id' => 1
+        ];
         DB::table('users')->insert($users);
         $this->command->info("Data Dummy Users berhasil diinsert");
     }

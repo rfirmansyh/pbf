@@ -1,5 +1,5 @@
 @extends('_layouts.app-auth')
-@section('title', 'Gabung Menjadi Mitra')
+@section('title', 'Gabung Menjadi Member')
 
 @section('content')
     <div class="card card-primary">
@@ -10,12 +10,12 @@
                 @csrf
 
                 <div class="form-group mb-2">
-                    <label for="email" class="text-md-right">Email Kamu</label>
+                    <label for="email" class="text-md-right">Email</label>
                     <input 
                         id="email" 
                         type="email" 
                         class="form-control @error('email') is-invalid @enderror" 
-                        name="email" value="{{ old('email') }}" 
+                        name="email" value="{{ old('email') }}" placeholder="Ex: johndoe@gmail.com"
                         required autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                         id="name" 
                         type="name" 
                         class="form-control @error('name') is-invalid @enderror" 
-                        name="name" value="{{ old('name') }}" required autocomplete="name">
+                        name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Ex: John Doe">
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
                     <input 
                         id="phone" 
                         type="phone" 
-                        class="form-control @error('phone') is-invalid @enderror" 
+                        class="form-control @error('phone') is-invalid @enderror" placeholder="Ex: 085423234xxx" 
                         name="phone" value="{{ old('phone') }}" required>
                     @error('phone')
                         <span class="invalid-feedback" role="alert">
@@ -68,11 +68,16 @@
                 </div>
                 <div class="form-group mb-2">
                     <label for="password" class="text-md-right">Konfirmasi Password</label>
-                    <input 
-                        id="password" 
-                        type="password" 
-                        class="form-control" 
-                        name="password_confirmation" autocomplete="new-password" required>
+                    <div class="input-group input-group-password">
+                        <input 
+                            id="password" 
+                            type="password" 
+                            class="form-control" 
+                            name="password_confirmation" autocomplete="new-password" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text text-secondary csr-pointer" id="basic-addon2"><i class="fa fa-eye"></i></span>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-lg btn-block btn-primary mb-2 mt-5">Daftar Sekarang</button>

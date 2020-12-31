@@ -1,6 +1,6 @@
 @extends('_layouts.app-auth')
 
-@section('title', 'Masuk Sebagai Mitra')
+@section('title', 'Masuk Sebagai Member')
 @section('content')
     <div class="card card-primary">
         <div class="card-header tx-18 font-weight-bold">Selamat Datang Kembali</div>
@@ -16,7 +16,7 @@
                         name="email" 
                         value="{{ old('email') }}"
                         id="email" 
-                        class="form-control @error('email') is-invalid @enderror" 
+                        class="form-control @error('email') is-invalid @enderror"  placeholder="Ex: johndoe@gmail.com"
                         required autocomplete="username" autofocus>
                     
                 </div>

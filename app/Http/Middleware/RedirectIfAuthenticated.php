@@ -22,13 +22,10 @@ class RedirectIfAuthenticated
             $role = Auth::user()->role->id; 
             switch ($role) {
                 case '1':
-                    return redirect()->route('dashboard.admin.users.index');
-                    break;
-                case '2':
-                    return redirect()->route('dashboard.mitra.index');
+                    return redirect()->route('dashboard.admin.index');
                     break;
                 default:
-                    return redirect()->route('dashboard.pekerja.index');;
+                    return redirect()->route('dashboard.member.index');;
                     break;
             }
         }

@@ -19,6 +19,13 @@
   </div>
 @endsection
 
+@if (\Auth::user()->email !== 'fsyah7052@gmail.com')
+@section('content')
+    <div class="alert alert-danger p-3 p-md-5">
+        <strong>Akun ini tidak memiliki Akses untuk menambah data Pengguna</strong>
+    </div>
+@endsection
+@else
 @section('content')
 
     <div class="row justify-content-center">
@@ -171,6 +178,7 @@
     </div>
 
 @endsection
+@endif
 
 @section('style')
     <style>
