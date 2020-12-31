@@ -27,10 +27,19 @@
 //     Route::view('/users/edit', 'ui/dashboard/modules/admin/users/edit');
 // });
 
+
+Auth::routes();
+
 ///============== THIS IS BACKEND ROUTES ==============\\\
 
 // ADMIN
-Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
+Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', 'as' => 'dashboard.admin.'], function() {
+
+    Route::get('/', 'AdminController@index')->name('index');
+
+    Route::get('profile/', 'AdminController@indexProfile')->name('profile.index');
+    Route::get('profile/edit', 'AdminController@editProfile')->name('profile.edit');
+
     Route::resource('books', 'BookController');
 
     Route::delete('peminjamans/deletewhere', 'PeminjamanController@deletewhere')->name('peminjamans.deletewhere');
@@ -45,6 +54,8 @@ Route::group(['prefix' => 'dashboard/admin', 'namespace' => 'Dashboard\Admin', '
 
     Route::resource('raks', 'RakController')->except('destroy');
 });
+
+
 Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
     Route::get('users', 'AjaxController@getUsers')->name('getUsers');
     Route::get('peminjamans', 'AjaxController@getPeminjamans')->name('getPeminjamans');
@@ -107,5 +118,5 @@ Route::group(['prefix' => 'ui'], function () {
 
 
 
-// Auth::routes();
+
 

@@ -13,17 +13,16 @@
         <div class="col-md-auto">
             <a href="{{ url()->previous() }}" class="btn btn-block btn-lg btn-outline-secondary"><i class="fas fa-arrow-left mr-2"></i> Batal</a>
         </div>
-        <div class="col-md-auto">
-            <a href="{{ route('dashboard.admin.users.index') }}" class="btn btn-block btn-lg btn-outline-primary"><i class="fas fa-user mr-2"></i> Semua Anggota</a>
-        </div>
   </div>
 @endsection
 
 @if (\Auth::user()->email !== 'fsyah7052@gmail.com')
 @section('content')
-    <div class="alert alert-danger p-3 p-md-5">
-        <strong>Akun ini tidak memiliki Akses untuk mengubah data Pengguna</strong>
-    </div>
+@section('content')
+<div class="alert alert-danger p-3 p-md-5">
+    <strong>Akun ini tidak memiliki Akses untuk mengubah data Profil</strong>
+</div>
+@endsection
 @endsection
 @else
 @section('content')
@@ -109,51 +108,6 @@
                                 </span>
                             @enderror
                         </div>
-
-                        <div class="form-group">
-                            <label for="">Status</label>
-                            <div class="custom-control custom-radio">
-                                <input
-                                    {{ $user->status === '1' ? 'checked' : '' }} 
-                                    name="status"
-                                    id="aktif"
-                                    type="radio" 
-                                    class="custom-control-input @error('status') is-invalid @enderror" value="1">
-                                <label class="custom-control-label text-success font-weight-bold" for="aktif">Aktif</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input
-                                    {{ $user->status === '0' ? 'checked' : '' }}  
-                                    name="status"
-                                    id="nonaktif"
-                                    type="radio" 
-                                    class="custom-control-input @error('status') is-invalid @enderror" value="0">
-                                <label class="custom-control-label text-gray font-weight-bold" for="nonaktif">Nonaktif</label>
-                                @error('status')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Role Anggota</label>
-                            <select 
-                                name="role_id" 
-                                id="role_id" 
-                                class="selectpicker @error('role_id') is-invalid @enderror"
-                                data-style="form-control" data-width="100%" data-live-search="true" data-live-search-placeholder="Cari Buku...">
-                                    @foreach ($roles as $role)
-                                        <option {{ $user->role_id === $role->id ? 'selected' : '' }} value="{{ $role->id }}">{{ $role->name }}</option>
-                                    @endforeach
-                            </select>
-                            @error('role_id')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
                         <button class="btn btn-lg btn-primary ml-auto d-block">Ubah</button>                    
                     </div>
                 </div>
@@ -188,12 +142,12 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 
 @endsection
 @endif
-
 
 @section('style')
     <style>
