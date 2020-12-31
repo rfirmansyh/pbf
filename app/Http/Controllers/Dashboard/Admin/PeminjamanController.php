@@ -208,7 +208,7 @@ class PeminjamanController extends Controller
             
         $peminjamans = Peminjaman::whereRaw($query)->get();
         foreach ($peminjamans as $i => $peminjaman) {
-            if (!$peminjaman->book) {
+            if (!$peminjaman->pengembalian) {
                 $book = \App\Book::find($peminjaman->book_id);
                 $book->stock = $book->stock + 1;
                 $book->save();

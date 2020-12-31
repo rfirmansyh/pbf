@@ -192,17 +192,41 @@
                         'targets': 0,
                         'checkboxes': {
                             'selectRow': true,
-                            'selectCallback': function(nodes, selected) {
-                                // let selected_rows = [];
-                                // selected_rows = [...selected_rows, table.rows( { selected: true } ).data()];
+                            'selectAllCallback': function(nodes, selected) {
                                 let selected_rows = $.map(table.rows( { selected: true } ).data(), function(item) {
-                                    console.log(item);
                                     return {
                                         'id': item.id,
                                         'length': item.status === 0 ? item.status : 1
                                     };
                                 });
-                                
+                                console.log(selected_rows);
+                                hasrow_returned_book = false;
+                                selected_rows.map((v) => {
+                                    if ( v.length === 1 ) {
+                                        hasrow_returned_book = true;
+                                    }
+                                });
+                                if (table.column(0).checkboxes.selected().length > 0) {
+                                    $('#btn-delete').removeAttr('disabled');
+                                    if ( hasrow_returned_book === false && selected_rows.length > 0 ) {
+                                        $('#btn-return').removeAttr('disabled');
+                                    } else {
+                                        $('#btn-return').attr('disabled', true);
+                                    }
+                                } else {
+                                    $('#btn-delete').attr('disabled', true);
+                                    $('#btn-return').attr('disabled', true);
+                                }
+                            },
+                            'selectCallback': function(nodes, selected) {
+                                // let selected_rows = [];
+                                // selected_rows = [...selected_rows, table.rows( { selected: true } ).data()];
+                                let selected_rows = $.map(table.rows( { selected: true } ).data(), function(item) {
+                                    return {
+                                        'id': item.id,
+                                        'length': item.status === 0 ? item.status : 1
+                                    };
+                                });
                                 hasrow_returned_book = false;
                                 selected_rows.map((v) => {
                                     if ( v.length === 1 ) {
@@ -239,7 +263,7 @@
                                 return data.title_full;
                             }
                             return `
-                            <a href="{{ url('dashboard/admin/books') }}/${data.id}" data-toggle="tooltip" data-placement="top" title="${data.title_full}">
+                            <a href="{{ url('dashboard/admin/books') }}/${data.id}" target="_blank" data-toggle="tooltip" data-placement="top" title="${data.title_full}">
                                 ${data.title}
                             </a>`;
                         }
