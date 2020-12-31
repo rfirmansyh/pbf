@@ -14,10 +14,14 @@
         <div class="row justify-content-center">
             <div class="col-auto mb-md-0">
                 <div class="img-profile img-profile-md shadow-light p-3">
-                    @if ($user->photo)
-                        <img src="{{ asset('storage/'.$user->photo) }}" alt=" " id="img-user">
+                    @if (\Auth::user()->email === 'admintest@gmail.com')
+                        <img src="{{ asset('img/users/imam.png') }}" alt=" ">    
                     @else
-                        <img src="{{ asset('img/users/default.png') }}" alt=" " id="img-user">
+                        @if ($user->photo)
+                            <img src="{{ asset('storage/'.$user->photo) }}" alt=" " id="img-user">
+                        @else
+                            <img src="{{ asset('img/users/default.png') }}" alt=" " id="img-user">
+                        @endif
                     @endif
                 </div>
             </div>
