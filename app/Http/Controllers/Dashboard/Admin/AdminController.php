@@ -54,4 +54,19 @@ class AdminController extends Controller
         
         return redirect()->route('dashboard.admin.profile.edit');
     }
+
+    public function changepassword(Request $request, User $user)
+    {
+        $validation = \Validator::make($request->all(), [
+            'password'              => 'required|min:3',
+        ])->validate();
+
+        $user = $user;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        \Session::flash('alert-type', 'success'); 
+        \Session::flash('alert-message', 'Password Berhasil Diubah!'); 
+        
+        return redirect()->route('dashboard.admin.profile.edit');
+    }
 }

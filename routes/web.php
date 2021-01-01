@@ -30,6 +30,12 @@
 
 Auth::routes();
 
+Route::group(['namespace' => 'Frontpage', 'as' => 'frontpage.'], function() {
+    Route::get('/', 'FrontpageController@index')->name('index');
+    Route::get('/about', 'FrontpageController@about')->name('about');
+    Route::get('/documentation', 'FrontpageController@documentation')->name('documentation');
+});
+
 ///============== THIS IS BACKEND ROUTES ==============\\\
 
 // ADMIN
@@ -40,6 +46,7 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
     Route::get('profile/', 'AdminController@indexProfile')->name('profile.index');
     Route::get('profile/edit', 'AdminController@editProfile')->name('profile.edit');
     Route::put('profile/{user}/update', 'AdminController@updateProfile')->name('profile.update');
+    Route::put('profile/{user}/changepassword', 'AdminController@changepassword')->name('profile.changepassword');
 
     Route::resource('books', 'BookController');
 
@@ -56,9 +63,24 @@ Route::group(['middleware' => ['auth', 'role:admin'], 'prefix' => 'dashboard/adm
     Route::resource('raks', 'RakController')->except('destroy');
 });
 
+Route::group(['middleware' => ['auth', 'role:member'], 'prefix' => 'dashboard/member', 'namespace' => 'Dashboard\Member', 'as' => 'dashboard.member.'], function(){
+
+    Route::get('/', 'MemberController@index')->name('index');
+
+    Route::get('profile/', 'MemberController@indexProfile')->name('profile.index');
+    Route::get('profile/edit', 'MemberController@editProfile')->name('profile.edit');
+    Route::put('profile/{user}/update', 'MemberController@updateProfile')->name('profile.update');
+    Route::put('profile/{user}/changepassword', 'MemberController@changepassword')->name('profile.changepassword');
+
+    Route::get('peminjamans', 'PeminjamanController@index')->name('peminjamans.index');
+
+    Route::resource('books', 'BookController')->only(['index', 'show']);
+});
+
 
 Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
     Route::get('users', 'AjaxController@getUsers')->name('getUsers');
+    Route::get('peminjamans/{member_id?}', 'AjaxController@getPeminjamansByMemberId')->name('getPeminjamansByMemberId');
     Route::get('peminjamans', 'AjaxController@getPeminjamans')->name('getPeminjamans');
     Route::get('pengembalians', 'AjaxController@getPengembalians')->name('getPengembalians');
     Route::get('users/{id?}', 'AjaxController@getUserById')->name('getUserById');

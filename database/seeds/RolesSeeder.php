@@ -23,7 +23,7 @@ class RolesSeeder extends Seeder
         ];
         $roles[] = [
             'name' => 'Member',
-            'slug' => 'mitra',
+            'slug' => 'member',
             'description' => 'Member hanya bisa melihat',
             'created_at' => new DateTime(null, new DateTimeZone('Asia/Bangkok')),
             'updated_at' => null

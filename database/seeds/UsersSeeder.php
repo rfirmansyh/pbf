@@ -52,6 +52,18 @@ class UsersSeeder extends Seeder
             'updated_at' => null,
             'role_id' => 1
         ];
+        $users[] = [
+            'name' => 'Member Tester',
+            'photo' => null,
+            'email' => 'membertest@gmail.com',
+            'password' =>  bcrypt('123'),
+            'phone' => '085748572454',
+            'address' => 'Unknown',
+            'status' => 1,
+            'created_at' => now(),
+            'updated_at' => null,
+            'role_id' => 2
+        ];
         DB::table('users')->insert($users);
         $this->command->info("Data Dummy Users berhasil diinsert");
     }

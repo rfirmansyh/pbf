@@ -65,8 +65,14 @@
                                 <div class="border-bottom mb-1 pb-1">Penulis :
                                     <div class="font-weight-bold"> {{ $book->writer }} </div>
                                 </div>
-                                <div class="border-bottom mb-1 pb-1"> Stok Buku :
-                                    <div class="font-weight-bold"> {{ $book->stock }} </div>
+                                <div class="border-bottom mb-1 pb-1"> Stok Buku : <br>
+                                    @if ($book->stock > 30)
+                                    <span class="badge badge-primary">{{ $book->stock }}</span>
+                                    @elseif ($book->stock > 3)
+                                    <span class="badge badge-info">{{ $book->stock }}</span>
+                                    @else 
+                                    <span class="badge badge-warning">{{ $book->stock }}</span>
+                                    @endif
                                 </div>
                                 <div class="">Deskripsi Buku :
                                     <div class= "font-weight-bold"> {{ substr($book->description, 0, 80).( (strlen($book->description) > 80) ? '...' : ''  )  }} </div>

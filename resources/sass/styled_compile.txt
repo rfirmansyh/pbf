@@ -1,5 +1,5 @@
 # dashboard
-sass --watch resources/sass/dashboard/components.scss:public/vendors/stisla/css/components.css resources/sass/dashboard/style.scss:public/vendors/stisla/css/style.css resources/sass/dashboard/rtl.scss:public/vendors/stisla/css/rtl.css resources/sass/dashboard/skins/reverse.scss:public/vendors/stisla/css/skins/reverse.css --style compressed
+sass --watch resources/sass/dashboard/components.scss:public/vendors/stisla/css/components.css resources/sass/dashboard/style.scss:public/vendors/stisla/css/style.css resources/sass/dashboard/rtl.scss:public/vendors/stisla/css/rtl.css resources/sass/dashboard/skins/reverse.scss:public/vendors/stisla/css/skins/reverse.css  --style compressed
 
 # frontpage
 sass --watch resources/sass/frontpage/app.scss:public/css/app-frontpage.css

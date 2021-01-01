@@ -121,7 +121,7 @@
             <div class="collapse @error('password') show @enderror" id="c-password">
                 <div class="card mt-5">
                     <div class="card-body">
-                        <form action="{{ route('dashboard.admin.users.changepassword', $user) }}" method="POST">
+                        <form action="{{ route('dashboard.admin.profile.changepassword', $user) }}" method="POST">
                             @csrf @method('PUT')
                             <div class="form-group">
                                 <label for="">Password Baru</label>

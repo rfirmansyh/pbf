@@ -68,6 +68,7 @@
                             <th>Tanggal Kembali</th>
                             <th>Sisa Hari</th>
                             <th>Status</th>
+                            <th>Denda</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -296,6 +297,7 @@
                             return '<span class="badge badge-secondary">Dipinjam</span>';
                         }
                     },
+                    {data: 'denda', name: 'denda'},
                     {
                         data: 'action', name: 'action',
                         render: function(data, type, row) {

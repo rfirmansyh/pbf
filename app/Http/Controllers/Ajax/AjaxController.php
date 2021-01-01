@@ -106,7 +106,7 @@ class AjaxController extends Controller
                 $remaining = Carbon::parse($peminjaman->returned_at)->diffInDays(Carbon::now()).' Hari ';
                 if ( Carbon::now()->greaterThan(Carbon::parse($peminjaman->returned_at)) ) {
                     return '<span class="badge badge-secondary">Habis</span>';
-                } elseif ( Carbon::now()->equalTo(Carbon::parse($peminjaman->returned_at)) ) {
+                } elseif ( Carbon::now()->lessThanOrEqualTo(Carbon::parse($peminjaman->returned_at)->addHours(6)) ) {
                     return '<span class="badge badge-warning">Hari Ini</span>';    
                 } else {
                     return '<span class="badge badge-primary">'.$remaining.'</span>';
@@ -130,10 +130,92 @@ class AjaxController extends Controller
                 return 0;
                 // return '<span class="badge badge-secondary">Dipinjam</span>';
             })
+            ->addColumn('denda', function($peminjaman) {
+                if ( isset($peminjaman->pengembalian) && $peminjaman->pengembalian->compensation > 0 ) {
+                    return '<span class="text-danger font-weight-bold"> Rp. '.$peminjaman->pengembalian->compensation.'</span>';
+                }  
+                return '<span class="text-secondary font-weight-bold">-</span>';
+            })
             ->addColumn('action', function($peminjaman) {
                 return $peminjaman->id;
             })
-            ->rawColumns(['photo', 'date_remaining', 'status'])->make(true);
+            ->rawColumns(['photo', 'date_remaining', 'denda', 'status'])->make(true);
+    }
+    
+    public function getPeminjamansByMemberId(Request $request, $id) 
+    {
+        $peminjamans = \App\Peminjaman::where('member_id', $id)->get();
+        return DataTables::of($peminjamans)
+            ->addColumn('title', function($peminjaman) {
+                return [
+                    'id' => $peminjaman->book->id,
+                    'title' => substr($peminjaman->book->title, 0, 12).( (strlen($peminjaman->book->title) > 12) ? '...' : ''  ),
+                    'title_full' => $peminjaman->book->title
+                ];
+            })
+            ->addColumn('member', function($peminjaman) {
+                return [
+                    'id' => $peminjaman->member->id,
+                    'name' => $peminjaman->member->name
+                ];
+            })
+            ->addColumn('admin', function($peminjaman) {
+                return [
+                    'id' => $peminjaman->admin->id,
+                    'name' => $peminjaman->admin->name
+                ];
+            })
+            ->addColumn('borrowed_at', function($peminjaman) {
+                return Carbon::parse($peminjaman->borrowed_at)->format('j M Y');
+            })
+            ->addColumn('returned_at', function($peminjaman) {
+                return Carbon::parse($peminjaman->returned_at)->format('j M Y');
+            })
+            ->addColumn('date_remaining', function($peminjaman) {
+                // $remaining = Carbon::parse($peminjaman->returned_at)->diffInDays(Carbon::now()).' Hari ';
+                // if ( Carbon::now()->diffInDays() < Carbon::parse($peminjaman->returned_at)->diffInDays() ) {
+                //     return '<span class="badge badge-primary">'.$remaining.'</span>';
+                // } elseif ( Carbon::now()->diffInDays() == Carbon::parse($peminjaman->returned_at)->diffInDays() ) {
+                //     return '<span class="badge badge-warning">Hari Ini</span>';    
+                // }
+                // return '<span class="badge badge-secondary">Habis</span>';
+                $remaining = Carbon::parse($peminjaman->returned_at)->diffInDays(Carbon::now()).' Hari ';
+                if ( Carbon::now()->greaterThan(Carbon::parse($peminjaman->returned_at)) ) {
+                    return '<span class="badge badge-secondary">Habis</span>';
+                } elseif ( Carbon::now()->lessThanOrEqualTo(Carbon::parse($peminjaman->returned_at)->addHours(6)) ) {
+                    return '<span class="badge badge-warning">Hari Ini</span>';    
+                } else {
+                    return '<span class="badge badge-primary">'.$remaining.'</span>';
+                }
+                
+            })
+            ->addColumn('status', function($peminjaman) {
+                if ( $peminjaman->pengembalian ) {
+                    return [
+                        'peminjaman_id' => $peminjaman->id,
+                        'pengembalian_id' => $peminjaman->pengembalian->id,
+                        'peminjaman_returned_at' => $peminjaman->returned_at,
+                        'pengembalian_returned_at' => $peminjaman->pengembalian->returned_at,
+                    ];
+                    // if ( $peminjaman->pengembalian->returned_at < $peminjaman->returned_at ) {
+                    //     return '<span class="badge badge-success">Dikembalikan</span>';
+                    // } else {
+                    //     return '<span class="badge badge-danger">terlambat</span>';
+                    // }
+                } 
+                return 0;
+                // return '<span class="badge badge-secondary">Dipinjam</span>';
+            })
+            ->addColumn('denda', function($peminjaman) {
+                if ( isset($peminjaman->pengembalian) && $peminjaman->pengembalian->compensation > 0 ) {
+                    return '<span class="text-danger font-weight-bold"> Rp. '.$peminjaman->pengembalian->compensation.'</span>';
+                }  
+                return '<span class="text-secondary font-weight-bold">-</span>';
+            })
+            ->addColumn('action', function($peminjaman) {
+                return $peminjaman->id;
+            })
+            ->rawColumns(['photo', 'date_remaining', 'denda', 'status'])->make(true);
     }
 
     public function getPengembalians(Request $request)

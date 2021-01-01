@@ -50,7 +50,7 @@
                         <label class="custom-control-label" for="remember">Ingat Saya ?</label>
                     </div>
                     @if (Route::has('password.request'))
-                    <a class="ml-auto" href="{{ route('password.request') }}"> Lupa Password ? </a>
+                    <a class="ml-auto" data-toggle="modal" data-target="#m-forget"> Lupa Password ? </a>
                     @endif
                 </div>
 
@@ -59,4 +59,27 @@
             <a href="{{ route('register') }}" class="btn btn-lg btn-block btn-outline-secondary">Belum Punya Akun</a>
         </div>
     </div>
+@endsection
+
+@section('modal')
+<div class="modal fade" id="m-forget" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >Lupa Password ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info py-4">
+              Silahkan Menuju atau Menemui atau Menghubungi salah satu Admin PERPUS ID
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

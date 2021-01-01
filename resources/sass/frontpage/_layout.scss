@@ -1,3 +1,52 @@
+header {
+    background-size: cover;   
+    min-height: 568px;
+    background-repeat: no-repeat;
+    background-position: center;
+    h1 {
+        @media screen and (max-width: breakpoint('lg')) {
+            font-size: 32px !important;
+        }
+    }
+    h5 {
+        @media screen and (max-width: breakpoint('lg')) {
+            font-size: 14px !important;
+        }
+    }
+    .form-control {
+        padding: 2rem 3rem;
+        height: unset;
+        background-color: unset !important;
+        color: color('white');
+        font-size: 2.4rem;
+        border: 2px solid color('white');
+        @media screen and (max-width: breakpoint('lg')) {
+            padding: 1.4rem 1.6rem;
+            font-size: 1.6rem;
+        }
+        &::placeholder {
+            color: color('white');
+        }
+        &:focus {
+            color: color('white');
+        }
+    }
+    .btn {
+        padding: 2rem 3rem;
+        font-size: 2.4rem;
+        @media screen and (max-width: breakpoint('lg')) {
+            padding: 1.4rem 1.6rem;
+            font-size: 1.6rem;
+        }
+        &-outline-white {
+            &:hover {
+                background-color: transparent !important;
+                box-shadow: 0 20px 30px rgba(color('white'), .3);
+            }
+        }
+    }
+}
+
 footer {
     background-color: color('whitesmoke');
 }

@@ -153,6 +153,11 @@ class UserController extends Controller
         ])->validate();
 
         $user = $user;
+        $user->save();
+        \Session::flash('alert-type', 'success'); 
+        \Session::flash('alert-message', 'Data Anggota Baru Berhasil Diubah!'); 
+        
+        return redirect()->route('dashboard.admin.users.edit', $user);
     }
 
     /**

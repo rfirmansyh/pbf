@@ -10,7 +10,7 @@
             @yield('content')
 
             <div class="simple-footer">
-                <a href="" class="d-block">Kembali Ke Halaman Utama</a>
+                <a href="{{ route('frontpage.index') }}" class="d-block">Kembali Ke Halaman Utama</a>
                 Copyright &copy; {{ env('APP_NAME') }} {{ date('Y') }}
             </div>
             </div>
