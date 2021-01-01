@@ -16,8 +16,12 @@
                 <a class="nav-item nav-link {{ Request::is('documentation') ? 'active' : '' }}" href="{{ route('frontpage.documentation') }}">
                     DOKUMENTASI
                 </a>
+                @if (\Auth::user())
+                <a class="btn btn-outline-primary mr-3" href="{{ route('dashboard.member.index') }}">AKSES DASHBOARD</a>    
+                @else
                 <a class="btn btn-outline-primary mr-3" href="{{ route('login') }}">MASUK</a>
                 <a class="btn btn-primary" href="{{ route('register') }}">REGISTRASI</a>
+                @endif
             </div>
         </div>
     </div>

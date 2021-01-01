@@ -80,7 +80,7 @@ Route::group(['middleware' => ['auth', 'role:member'], 'prefix' => 'dashboard/me
 
 Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax', 'as' => 'ajax.'], function() {
     Route::get('users', 'AjaxController@getUsers')->name('getUsers');
-    Route::get('peminjamans/{member_id?}', 'AjaxController@getPeminjamansByMemberId')->name('getPeminjamansByMemberId');
+    Route::get('peminjamans/where/{member_id?}', 'AjaxController@getPeminjamansByMemberId')->name('getPeminjamansByMemberId');
     Route::get('peminjamans', 'AjaxController@getPeminjamans')->name('getPeminjamans');
     Route::get('pengembalians', 'AjaxController@getPengembalians')->name('getPengembalians');
     Route::get('users/{id?}', 'AjaxController@getUserById')->name('getUserById');

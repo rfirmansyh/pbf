@@ -11,7 +11,7 @@
                     <h5 class="font-weight-light">Dengan tema bebas kami berinisiatif membuat web perpustakaan karena mudah, serta tidak memakan banyak waktu, kami juga menyediakan dokumentasi dari web kami</h5>
                 </div>
                 <div class="col-lg-10 col-xl-6">
-                    <button class="btn btn-outline-white">Lihat Dokumentasi</button>
+                    <a href="{{ route('frontpage.documentation') }}" class="btn btn-outline-white">Lihat Dokumentasi</a>
                 </div>
             </div>
         </div>

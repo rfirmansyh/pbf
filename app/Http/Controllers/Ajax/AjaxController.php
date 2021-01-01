@@ -106,7 +106,7 @@ class AjaxController extends Controller
                 $remaining = Carbon::parse($peminjaman->returned_at)->diffInDays(Carbon::now()).' Hari ';
                 if ( Carbon::now()->greaterThan(Carbon::parse($peminjaman->returned_at)) ) {
                     return '<span class="badge badge-secondary">Habis</span>';
-                } elseif ( Carbon::now()->lessThanOrEqualTo(Carbon::parse($peminjaman->returned_at)->addHours(6)) ) {
+                } elseif ( Carbon::now()->EqualTo(Carbon::parse($peminjaman->returned_at)->addHours(6)) ) {
                     return '<span class="badge badge-warning">Hari Ini</span>';    
                 } else {
                     return '<span class="badge badge-primary">'.$remaining.'</span>';
