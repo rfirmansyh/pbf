@@ -36,17 +36,17 @@
             <h4 class="text-dark text-center font-weight-bold mb-6">Anggota Kelompok</h4>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">
-                    <img src="{{ asset('img/frontpage/3.png') }}" alt="" class="img-fluid mb-5">
+                    <img src="{{ asset('img/frontpage/man.png') }}" alt="" class="img-fluid mb-5">
                     <h5 class="text-dark font-weight-bold mb-5">Rahmad Firmansyah</h5>
                     <h6 class="text-grey font-weight-normal">182410102024</h6>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">
-                    <img src="{{ asset('img/frontpage/3.png') }}" alt="" class="img-fluid mb-5">
+                    <img src="{{ asset('img/frontpage/feb.png') }}" alt="" class="img-fluid mb-5">
                     <h5 class="text-dark font-weight-bold mb-5">Febria Erliana</h5>
                     <h6 class="text-grey font-weight-normal">182410102003</h6>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 text-center">
-                    <img src="{{ asset('img/frontpage/3.png') }}" alt="" class="img-fluid mb-5">
+                    <img src="{{ asset('img/frontpage/mel.png') }}" alt="" class="img-fluid mb-5">
                     <h5 class="text-dark font-weight-bold mb-5">Melina CW</h5>
                     <h6 class="text-grey font-weight-normal">182410102001</h6>
                 </div>

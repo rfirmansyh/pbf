@@ -15,7 +15,7 @@
             <div class="col-auto mb-md-0">
                 <div class="img-profile img-profile-md shadow-light p-3">
                     @if (\Auth::user()->email === 'membertest@gmail.com')
-                        <img src="{{ asset('img/users/lutfi.png') }}" alt=" ">    
+                        <img src="{{ asset('img/users/imam.png') }}" alt=" ">    
                     @else
                         @if ($user->photo)
                             <img src="{{ asset('storage/'.$user->photo) }}" alt=" " id="img-user">

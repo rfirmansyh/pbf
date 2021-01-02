@@ -11,10 +11,9 @@
             <div class="col-12 text-center pt-lg-4 pl-lg-5 mb-5 mb-md-0">
                 <h5 class="text-font font-weight-bold mb-4">NAVIGASI</h5>
                 <ul class="nav d-flex justify-content-center">
-                    <li class="nav-item nav-link mb-2 pl-0"><a href="" class="text-font font-weight-normal">BERANDA</a></li>
-                    <li class="nav-item nav-link mb-2 pl-0"><a href="" class="text-font font-weight-normal">TENTANG</a></li>
-                    <li class="nav-item nav-link mb-2 pl-0"><a href="" class="text-font font-weight-normal">CARA KERJA</a></li>
-                    <li class="nav-item nav-link mb-2 pl-0"><a href="" class="text-font font-weight-normal">BERITA</a></li>
+                    <li class="nav-item nav-link mb-2 pl-0"><a href="{{ route('frontpage.index') }}" class="text-font font-weight-normal">BERANDA</a></li>
+                    <li class="nav-item nav-link mb-2 pl-0"><a href="{{ route('frontpage.about') }}" class="text-font font-weight-normal">TENTANG</a></li>
+                    <li class="nav-item nav-link mb-2 pl-0"><a href="{{ route('frontpage.documentation') }}" class="text-font font-weight-normal">DOKUMENTASI</a></li>
                 </ul>
             </div>
         </div>

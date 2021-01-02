@@ -8,7 +8,7 @@
                 @if (\Auth::user()->email === 'admintest@gmail.com')
                     <img src="{{ asset('img/users/imam.png') }}" alt=" " style="width: 100%; height: 100%; object-fit: cover">
                 @elseif(\Auth::user()->email === 'membertest@gmail.com')
-                    <img src="{{ asset('img/users/lutfi.png') }}" alt=" " style="width: 100%; height: 100%; object-fit: cover">
+                    <img src="{{ asset('img/users/imam.png') }}" alt=" " style="width: 100%; height: 100%; object-fit: cover">
                 @else
                     @if (\Auth::user()->photo)
                         <img src="{{ asset('storage/'.\Auth::user()->photo) }}" alt=" " style="width: 100%; height: 100%; object-fit: cover">
