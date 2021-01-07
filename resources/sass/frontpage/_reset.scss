@@ -6,6 +6,9 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
     scroll-behavior: smooth;
+    &.modal-open {
+        overflow: hidden;
+    }
 }
 
 h1 {

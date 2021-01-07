@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="card-footer border-top border-light d-flex justify-content-end">
-                            <button data-detail-id="{{ $book->id }}" data-target="#m-detail" data-toggle="modal" class="btn btn-sm btn-primary">Detail</button>
+                            <button data-detail-id="{{ $book->id }}" class="btn btn-sm btn-primary">Detail</button>
                         </div>
                     </div>
                 </div> 
@@ -86,7 +86,7 @@
 
 @section('modal')
 <div class="modal fade" id="m-detail" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="title-detail"></h5>
@@ -151,7 +151,7 @@
 @section('script')
     <script>
         $(function() {
-            $('button[data-toggle="modal"]').on('click', function(e) {
+            $('button[data-detail-id]').on('click', function(e) {
                 $.ajax({
                     url: `{{ route('ajax.getBookById') }}/${$(this).data('detail-id')}`,
                     success: function(result) {
@@ -171,9 +171,12 @@
                             $('#m-detail').find('#stock-detail').html(`<span class="badge badge-warning"> ${result.data.stock} </span>`);
                         }
                         $('#m-detail').find('#description-detail').html(result.data.description);
+                        $('#m-detail').modal('show');
+                    },
+                    error: function(err) {
+                        console.log(err);
                     }
                 })
-                e.preventDefault();
             })
         })
     </script>

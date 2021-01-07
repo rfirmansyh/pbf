@@ -25,7 +25,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('dashboard.admin.books.store') }}" method="POST">
+                    <form action="{{ route('dashboard.admin.books.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Foto Buku</label>

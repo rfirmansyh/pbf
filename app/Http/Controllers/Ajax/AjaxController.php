@@ -24,7 +24,7 @@ class AjaxController extends Controller
 
     public function getUsers(Request $request)
     {
-        $users = \App\User::all();
+        $users = \App\User::orderBy('created_at', 'desc')->get();
         return DataTables::of($users)
             ->addColumn('id', function($user) {
                 return $user->id;
@@ -68,7 +68,7 @@ class AjaxController extends Controller
     
     public function getPeminjamans(Request $request) 
     {
-        $peminjamans = \App\Peminjaman::get();
+        $peminjamans = \App\Peminjaman::orderBy('created_at', 'desc')->get();
         return DataTables::of($peminjamans)
             ->addColumn('title', function($peminjaman) {
                 return [
@@ -144,7 +144,7 @@ class AjaxController extends Controller
     
     public function getPeminjamansByMemberId(Request $request, $id) 
     {
-        $peminjamans = \App\Peminjaman::where('member_id', $id)->get();
+        $peminjamans = \App\Peminjaman::where('member_id', $id)->orderBy('created_at', 'desc')->get();
         return DataTables::of($peminjamans)
             ->addColumn('title', function($peminjaman) {
                 return [
@@ -220,7 +220,7 @@ class AjaxController extends Controller
 
     public function getPengembalians(Request $request)
     {
-        $pengembalians = \App\Pengembalian::get();
+        $pengembalians = \App\Pengembalian::orderBy('created_at', 'desc')->get();
         return DataTables::of($pengembalians)
                 ->addColumn('title', function($pengembalian) {
                     return [

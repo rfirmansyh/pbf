@@ -6,6 +6,9 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.4rem;
   scroll-behavior: smooth; }
+body.modal-open {
+  overflow: hidden;
+}
 
 h1 {
   font-size: 6.4rem; }
@@ -235,7 +238,7 @@ p {
     border-color: #E3EAEF !important; }
     .btn.btn-outline-light:hover, .btn.btn-outline-light:focus {
       background-color: #E3EAEF;
-      color: !important; }
+      color: white!important; }
   .btn.btn-grey {
     border: none;
     background-color: #868E96;
@@ -347,7 +350,7 @@ p {
     border-color: #ffffff !important; }
     .btn.btn-outline-white:hover, .btn.btn-outline-white:focus {
       background-color: #ffffff;
-      color: !important; }
+      color: white!important; }
 
 .card {
   padding: 0;

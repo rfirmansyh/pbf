@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form action="{{ route('dashboard.admin.users.store') }}" method="POST">
+            <form action="{{ route('dashboard.admin.users.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card">
                     <div class="card-body">

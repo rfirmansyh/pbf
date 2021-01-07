@@ -15,9 +15,9 @@ class RakController extends Controller
      */
     public function index(Request $request)
     {
-        $raks = Rak::paginate(6);
+        $raks = Rak::orderBy('created_at', 'desc')->paginate(6);
         if ($request->search) {
-            $raks = Rak::where('name', 'LIKE', "%$request->search%")->orWhere('location', 'LIKE', "%$request->search%")->paginate(6);
+            $raks = Rak::where('name', 'LIKE', "%$request->search%")->orWhere('location', 'LIKE', "%$request->search%")->orderBy('created_at', 'desc')->paginate(6);
         }
         return view('dashboard.modules.admin.raks.index')->with([
             'raks' => $raks

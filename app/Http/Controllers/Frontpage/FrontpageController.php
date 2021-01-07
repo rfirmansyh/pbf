@@ -9,9 +9,9 @@ class FrontpageController extends Controller
 {
     public function index(Request $request) 
     {
-        $books = \App\Book::paginate(6);
+        $books = \App\Book::orderBy('created_at', 'desc')->paginate(6);
         if ($request->search) {
-            $books = \App\Book::where('title', 'LIKE', "%$request->search%")->paginate(6);
+            $books = \App\Book::where('title', 'LIKE', "%$request->search%")->orderBy('created_at', 'desc')->paginate(6);
             if ( count($books) > 0) {
                 \Session::flash('alert-type', 'success'); 
                 \Session::flash('alert-message', 'Menampilkan buku dengan keyword "'.$request->search.'" !'); 

@@ -47,7 +47,7 @@
                     <p class="lead">Tidak ada yang lebih menyenangkan daripada menjelajahi perpustakaan</p>
                     <p>~Walter Savage Landor</p>
                     <div class="mt-4">
-                    <a href="{{ url('ui/dashboard/member/books') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-search"></i>Cari Buku Sekarang!</a>
+                    <a href="{{ route('dashboard.member.books.index') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fas fa-search"></i>Cari Buku Sekarang!</a>
                     </div>
                 </div>
             </div>

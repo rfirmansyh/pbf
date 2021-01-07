@@ -30,11 +30,11 @@ class AdminController extends Controller
 
     public function updateProfile(Request $request, User $user)
     {
-        $validation = \Validator::make($request->all(), [
+        $request->validate([
             'name'                  => 'required|min:5|max:191',
             'phone'                 => 'required|digits_between:10,12',
             'address'               => 'required',
-        ])->validate();
+        ]);
 
         $user = $user;
         if ($request->file('photo')) {
@@ -57,9 +57,9 @@ class AdminController extends Controller
 
     public function changepassword(Request $request, User $user)
     {
-        $validation = \Validator::make($request->all(), [
+        $request->validate([
             'password'              => 'required|min:3',
-        ])->validate();
+        ]);
 
         $user = $user;
         $user->password = bcrypt($request->password);
